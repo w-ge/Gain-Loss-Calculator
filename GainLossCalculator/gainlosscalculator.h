@@ -23,6 +23,8 @@ public:
 
     void buildNodes();
 
+    void calculateACB();
+
 private slots:
     void on_save_clicked();
 

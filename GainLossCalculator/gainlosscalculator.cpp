@@ -17,8 +17,25 @@ GainLossCalculator::GainLossCalculator(QWidget *parent) :
     else{
         qDebug()<< "Connected";
         buildNodes();
+        calculateACB();
         this->setWindowState(Qt::WindowMaximized);
     }
+}
+
+void GainLossCalculator::calculateACB(){
+    int buyTotal = 0;
+    int buyShares = 0;
+    int sellShares = 0;
+    for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
+        if((*it)->buy){
+            buyTotal += (*it)->price * (*it)->number;
+            buyShares += (*it)->number;
+        }
+        else {
+            sellShares += (*it)->number;
+        }
+    }
+    qDebug() << buyShares + sellShares;
 }
 
 void GainLossCalculator::buildNodes(){
@@ -33,9 +50,9 @@ void GainLossCalculator::buildNodes(){
     query.next();
 
     for(int i = 0; i < numOfNodes ; i++){
-        nodes.push_back(new TransactionNode(nullptr, query.value(1).toString(), query.value(2).toString(),
-                                            query.value(3).toString(), query.value(4).toString(), query.value(5).toString(),
-                                            query.value(6).toString(), query.value(7).toString()));
+        nodes.push_back(new TransactionNode(nullptr, query.value(1).toString(), query.value(2).toBool(),
+                                            query.value(3).toInt(), query.value(4).toString(), query.value(5).toInt(),
+                                            query.value(6).toInt(), query.value(7).toInt(), query.value(8).toInt()));
         query.next();
 
     }

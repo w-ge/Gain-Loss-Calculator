@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -24,7 +23,8 @@ class Ui_TransactionNode
 public:
     QHBoxLayout *horizontalLayout;
     QLabel *date;
-    QComboBox *type;
+    QLineEdit *buy;
+    QLineEdit *sell;
     QLineEdit *description;
     QLineEdit *price;
     QLineEdit *costs;
@@ -37,7 +37,7 @@ public:
             TransactionNode->setObjectName(QString::fromUtf8("TransactionNode"));
         TransactionNode->resize(592, 50);
         TransactionNode->setStyleSheet(QString::fromUtf8("border: 1px solid black;\n"
-"background-color: rgb(0, 0, 0);"));
+"background-color: rgb(255, 255, 255);"));
         horizontalLayout = new QHBoxLayout(TransactionNode);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         date = new QLabel(TransactionNode);
@@ -47,13 +47,15 @@ public:
 
         horizontalLayout->addWidget(date);
 
-        type = new QComboBox(TransactionNode);
-        type->addItem(QString());
-        type->addItem(QString());
-        type->setObjectName(QString::fromUtf8("type"));
-        type->setMinimumSize(QSize(70, 0));
+        buy = new QLineEdit(TransactionNode);
+        buy->setObjectName(QString::fromUtf8("buy"));
 
-        horizontalLayout->addWidget(type);
+        horizontalLayout->addWidget(buy);
+
+        sell = new QLineEdit(TransactionNode);
+        sell->setObjectName(QString::fromUtf8("sell"));
+
+        horizontalLayout->addWidget(sell);
 
         description = new QLineEdit(TransactionNode);
         description->setObjectName(QString::fromUtf8("description"));
@@ -89,10 +91,7 @@ public:
     void retranslateUi(QWidget *TransactionNode)
     {
         TransactionNode->setWindowTitle(QApplication::translate("TransactionNode", "Form", nullptr));
-        date->setText(QApplication::translate("TransactionNode", "TextLabel", nullptr));
-        type->setItemText(0, QApplication::translate("TransactionNode", "BUY", nullptr));
-        type->setItemText(1, QApplication::translate("TransactionNode", "SELL", nullptr));
-
+        date->setText(QString());
     } // retranslateUi
 
 };
