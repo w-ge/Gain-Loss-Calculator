@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,13 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        TransactionNode/transactionnode.cpp \
         main.cpp \
         gainlosscalculator.cpp
 
 HEADERS += \
+        TransactionNode/transactionnode.h \
         gainlosscalculator.h
 
 FORMS += \
+        TransactionNode/transactionnode.ui \
         gainlosscalculator.ui
 
 # Default rules for deployment.
