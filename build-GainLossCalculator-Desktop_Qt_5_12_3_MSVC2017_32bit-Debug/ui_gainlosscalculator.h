@@ -38,6 +38,8 @@ public:
     QLabel *label_5;
     QLabel *label_6;
     QLabel *label_7;
+    QLabel *label_8;
+    QLabel *label_10;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *addTransaction;
     QPushButton *save;
@@ -47,7 +49,7 @@ public:
     {
         if (GainLossCalculator->objectName().isEmpty())
             GainLossCalculator->setObjectName(QString::fromUtf8("GainLossCalculator"));
-        GainLossCalculator->resize(553, 408);
+        GainLossCalculator->resize(828, 550);
         horizontalLayout_2 = new QHBoxLayout(GainLossCalculator);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -61,7 +63,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 531, 355));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 806, 497));
         horizontalLayout_6 = new QHBoxLayout(scrollAreaWidgetContents);
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
@@ -87,7 +89,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy);
-        label->setMinimumSize(QSize(70, 0));
+        label->setMinimumSize(QSize(65, 0));
         label->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label);
@@ -96,6 +98,7 @@ public:
         label_9->setObjectName(QString::fromUtf8("label_9"));
         sizePolicy.setHeightForWidth(label_9->sizePolicy().hasHeightForWidth());
         label_9->setSizePolicy(sizePolicy);
+        label_9->setMinimumSize(QSize(65, 0));
         label_9->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_9);
@@ -104,6 +107,7 @@ public:
         label_3->setObjectName(QString::fromUtf8("label_3"));
         sizePolicy.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
         label_3->setSizePolicy(sizePolicy);
+        label_3->setMinimumSize(QSize(65, 0));
         label_3->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_3);
@@ -112,6 +116,7 @@ public:
         label_4->setObjectName(QString::fromUtf8("label_4"));
         sizePolicy.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
         label_4->setSizePolicy(sizePolicy);
+        label_4->setMinimumSize(QSize(65, 0));
         label_4->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_4);
@@ -120,6 +125,7 @@ public:
         label_5->setObjectName(QString::fromUtf8("label_5"));
         sizePolicy.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
         label_5->setSizePolicy(sizePolicy);
+        label_5->setMinimumSize(QSize(65, 0));
         label_5->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_5);
@@ -128,6 +134,7 @@ public:
         label_6->setObjectName(QString::fromUtf8("label_6"));
         sizePolicy.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
         label_6->setSizePolicy(sizePolicy);
+        label_6->setMinimumSize(QSize(65, 0));
         label_6->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_6);
@@ -136,9 +143,28 @@ public:
         label_7->setObjectName(QString::fromUtf8("label_7"));
         sizePolicy.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
         label_7->setSizePolicy(sizePolicy);
+        label_7->setMinimumSize(QSize(65, 0));
         label_7->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_7);
+
+        label_8 = new QLabel(scrollAreaWidgetContents);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        sizePolicy.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
+        label_8->setSizePolicy(sizePolicy);
+        label_8->setMinimumSize(QSize(65, 0));
+        label_8->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout->addWidget(label_8);
+
+        label_10 = new QLabel(scrollAreaWidgetContents);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        sizePolicy.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
+        label_10->setSizePolicy(sizePolicy);
+        label_10->setMinimumSize(QSize(65, 0));
+        label_10->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout->addWidget(label_10);
 
 
         transactions->addLayout(horizontalLayout);
@@ -191,6 +217,8 @@ public:
         label_5->setText(QApplication::translate("GainLossCalculator", "Cost", nullptr));
         label_6->setText(QApplication::translate("GainLossCalculator", "Proceeds", nullptr));
         label_7->setText(QApplication::translate("GainLossCalculator", "Commission", nullptr));
+        label_8->setText(QApplication::translate("GainLossCalculator", "Book Value", nullptr));
+        label_10->setText(QApplication::translate("GainLossCalculator", "Average Cost Base", nullptr));
         addTransaction->setText(QApplication::translate("GainLossCalculator", "Add New Transaction", nullptr));
         save->setText(QApplication::translate("GainLossCalculator", "Save", nullptr));
         back->setText(QApplication::translate("GainLossCalculator", "Back", nullptr));

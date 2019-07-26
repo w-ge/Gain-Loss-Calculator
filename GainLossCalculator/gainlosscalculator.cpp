@@ -17,25 +17,24 @@ GainLossCalculator::GainLossCalculator(QWidget *parent) :
     else{
         qDebug()<< "Connected";
         buildNodes();
-        calculateACB();
         this->setWindowState(Qt::WindowMaximized);
     }
 }
 
 void GainLossCalculator::calculateACB(){
-    int buyTotal = 0;
-    int buyShares = 0;
-    int sellShares = 0;
+    double totalCost = 0;
+    double totalShares = 0;
+
     for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
         if((*it)->buy){
-            buyTotal += (*it)->price * (*it)->number;
-            buyShares += (*it)->number;
+            totalCost += (*it)->price * (*it)->number;
+            totalShares += (*it)->number;
+            (*it)->setACB(QString::number(totalCost / totalShares,'f',2));
         }
         else {
-            sellShares += (*it)->number;
+            (*it)->setBookValue(QString::number(totalCost / totalShares * (*it)->number,'f',2));
         }
     }
-    qDebug() << buyShares + sellShares;
 }
 
 void GainLossCalculator::buildNodes(){
@@ -50,9 +49,9 @@ void GainLossCalculator::buildNodes(){
     query.next();
 
     for(int i = 0; i < numOfNodes ; i++){
-        nodes.push_back(new TransactionNode(nullptr, query.value(1).toString(), query.value(2).toBool(),
-                                            query.value(3).toInt(), query.value(4).toString(), query.value(5).toInt(),
-                                            query.value(6).toInt(), query.value(7).toInt(), query.value(8).toInt()));
+        nodes.push_back(new TransactionNode(nullptr, query.value(1).toInt(), query.value(2).toInt(), query.value(3).toInt(),
+                                            query.value(4).toBool(), query.value(5).toInt(), query.value(6).toString(), query.value(7).toDouble(),
+                                            query.value(8).toDouble(), query.value(9).toDouble()));
         query.next();
 
     }
@@ -61,7 +60,7 @@ void GainLossCalculator::buildNodes(){
         ui->transactions->addWidget(*it);
     }
     ui->transactions->addStretch();
-
+    calculateACB();
 }
 GainLossCalculator::~GainLossCalculator()
 {
@@ -70,17 +69,23 @@ GainLossCalculator::~GainLossCalculator()
 
 void GainLossCalculator::on_save_clicked()
 {
-    /*QSqlQuery query(db);
+    QSqlQuery query(db);
     query.exec("DELETE FROM Security1;");
 
-    query.prepare("INSERT INTO Security1 (Date, Type, SecurityDescription, Price, Cost, Proceeds, Commission) VALUES (:date, :type, :desc, :price, :cost, :proceeds, :commission)");
-    tn->update();
-    query.bindValue(":date", tn->date);
-    query.bindValue(":type", tn->type);
-    query.bindValue(":desc", tn->description);
-    query.bindValue(":price", tn->price.toDouble());
-    query.bindValue(":cost", tn->cost.toDouble());
-    query.bindValue(":proceeds", tn->proceeds.toDouble());
-    query.bindValue(":commission", tn->commission.toDouble());
-    query.exec();*/
+    for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
+        (*it)->update();
+        query.prepare("INSERT INTO Security1 (Day, Month, Year, Buy, Number, SecurityDescription, Cost, Proceeds, Commission) VALUES "
+                      "(:day, :month, :year, :buy, :number, :desc, :cost, :proceeds, :commission)");
+        query.bindValue(":day", (*it)->day);
+        query.bindValue(":month", (*it)->month);
+        query.bindValue(":year", (*it)->year);
+        query.bindValue(":number", (*it)->number);
+        query.bindValue(":buy", (*it)->buy);
+        query.bindValue(":desc", (*it)->description);
+        query.bindValue(":cost", (*it)->cost);
+        query.bindValue(":proceeds", (*it)->proceeds);
+        query.bindValue(":commission", (*it)->commission);
+        query.exec();
+    }
+    calculateACB();
 }

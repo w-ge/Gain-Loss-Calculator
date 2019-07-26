@@ -6,6 +6,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QIntValidator>
+#include <QDoubleValidator>
 namespace Ui {
 class TransactionNode;
 }
@@ -15,20 +16,26 @@ class TransactionNode : public QWidget
     Q_OBJECT
 
 public:
-    explicit TransactionNode(QWidget *parent = nullptr, QString d = "", bool b = 1, int n = 0,
-                             QString desc = "", int p = 0, int c = 0, int pro = 0, int com = 0);
+    explicit TransactionNode(QWidget *parent = nullptr, int d = 0, int m  = 0, int y = 0, bool b = 1, int n = 0,
+                             QString desc = "", double c = 0, double p = 0, double com = 0);
     ~TransactionNode();
 
-    QString date;
+    int day;
+    int month;
+    int year;
     bool buy;
     int number;
     QString description;
-    int price;
-    int cost;
-    int proceeds;
-    int commission;
+    double price;
+    double cost;
+    double proceeds;
+    double commission;
 
     void update();
+
+    void setACB(QString acb);
+
+    void setBookValue(QString bookvalue);
 
 private:
     Ui::TransactionNode *ui;

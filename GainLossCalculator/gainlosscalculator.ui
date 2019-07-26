@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>408</height>
+    <width>828</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,8 +29,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>531</width>
-          <height>355</height>
+          <width>806</width>
+          <height>497</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -76,7 +76,7 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>70</width>
+                 <width>65</width>
                  <height>0</height>
                 </size>
                </property>
@@ -96,6 +96,12 @@
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
                 <string>Sell</string>
                </property>
@@ -111,6 +117,12 @@
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
                </property>
                <property name="text">
                 <string>Description</string>
@@ -128,6 +140,12 @@
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
                 <string>Price</string>
                </property>
@@ -143,6 +161,12 @@
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
                </property>
                <property name="text">
                 <string>Cost</string>
@@ -160,6 +184,12 @@
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
                 <string>Proceeds</string>
                </property>
@@ -176,8 +206,58 @@
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="text">
                 <string>Commission</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Book Value</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_10">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>65</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Average Cost Base</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
