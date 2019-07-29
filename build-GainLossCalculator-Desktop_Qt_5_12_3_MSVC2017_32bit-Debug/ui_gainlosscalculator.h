@@ -15,6 +15,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,8 +28,7 @@ public:
     QVBoxLayout *verticalLayout;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QHBoxLayout *horizontalLayout_6;
-    QVBoxLayout *transactions;
+    QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
     QLabel *label;
@@ -40,9 +40,12 @@ public:
     QLabel *label_7;
     QLabel *label_8;
     QLabel *label_10;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *transactions;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *addTransaction;
     QPushButton *save;
+    QPushButton *revert;
     QPushButton *back;
 
     void setupUi(QWidget *GainLossCalculator)
@@ -64,13 +67,10 @@ public:
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 806, 497));
-        horizontalLayout_6 = new QHBoxLayout(scrollAreaWidgetContents);
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        transactions = new QVBoxLayout();
-        transactions->setSpacing(6);
-        transactions->setObjectName(QString::fromUtf8("transactions"));
+        verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -166,11 +166,18 @@ public:
 
         horizontalLayout->addWidget(label_10);
 
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        transactions->addLayout(horizontalLayout);
+        horizontalLayout->addItem(horizontalSpacer);
 
 
-        horizontalLayout_6->addLayout(transactions);
+        verticalLayout_2->addLayout(horizontalLayout);
+
+        transactions = new QVBoxLayout();
+        transactions->setSpacing(6);
+        transactions->setObjectName(QString::fromUtf8("transactions"));
+
+        verticalLayout_2->addLayout(transactions);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 
@@ -188,6 +195,11 @@ public:
         save->setObjectName(QString::fromUtf8("save"));
 
         horizontalLayout_5->addWidget(save);
+
+        revert = new QPushButton(GainLossCalculator);
+        revert->setObjectName(QString::fromUtf8("revert"));
+
+        horizontalLayout_5->addWidget(revert);
 
         back = new QPushButton(GainLossCalculator);
         back->setObjectName(QString::fromUtf8("back"));
@@ -221,6 +233,7 @@ public:
         label_10->setText(QApplication::translate("GainLossCalculator", "Average Cost Base", nullptr));
         addTransaction->setText(QApplication::translate("GainLossCalculator", "Add New Transaction", nullptr));
         save->setText(QApplication::translate("GainLossCalculator", "Save", nullptr));
+        revert->setText(QApplication::translate("GainLossCalculator", "Revert Changes", nullptr));
         back->setText(QApplication::translate("GainLossCalculator", "Back", nullptr));
     } // retranslateUi
 

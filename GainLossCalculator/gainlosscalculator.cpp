@@ -53,11 +53,11 @@ void GainLossCalculator::buildNodes(){
                                             query.value(4).toBool(), query.value(5).toInt(), query.value(6).toString(), query.value(7).toDouble(),
                                             query.value(8).toDouble(), query.value(9).toDouble()));
         query.next();
-
     }
 
     for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
         ui->transactions->addWidget(*it);
+        connect(*it, SIGNAL(deleteThis(TransactionNode*)), this, SLOT(deleteThis(TransactionNode *)));
     }
     ui->transactions->addStretch();
     calculateACB();
@@ -67,6 +67,12 @@ GainLossCalculator::~GainLossCalculator()
     delete ui;
 }
 
+void GainLossCalculator::deleteThis(TransactionNode * tn){
+    qDebug() << "Here";
+    nodes.remove(tn);
+    ui->transactions->removeWidget(tn);
+    delete tn;
+}
 void GainLossCalculator::on_save_clicked()
 {
     QSqlQuery query(db);
@@ -88,4 +94,25 @@ void GainLossCalculator::on_save_clicked()
         query.exec();
     }
     calculateACB();
+}
+
+void GainLossCalculator::on_addTransaction_clicked()
+{
+    nodes.push_back(new TransactionNode(nullptr, 1, 1, 2000,
+                                        true, 1, "", 0,
+                                        0, 0));
+    ui->transactions->insertWidget(ui->transactions->count()-1, nodes.back());
+
+    connect(nodes.back(), SIGNAL(deleteThis(TransactionNode*)), this, SLOT(deleteThis(TransactionNode *)));
+}
+
+
+void GainLossCalculator::on_revert_clicked()
+{
+    QLayoutItem *child;
+    while ((child = ui->transactions->takeAt(0)) != nullptr) {
+        delete child->widget();
+    }
+    nodes.clear();
+    buildNodes();
 }

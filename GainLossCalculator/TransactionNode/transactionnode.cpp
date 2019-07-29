@@ -86,3 +86,10 @@ void TransactionNode::update(){
 
     ui->bookvalue->setText(QString::number(number * price,'f',2));
 }
+
+
+
+void TransactionNode::on_delete_2_clicked()
+{
+    emit deleteThis(this);
+}

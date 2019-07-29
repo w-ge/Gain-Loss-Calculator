@@ -37,6 +37,15 @@ public:
 
     void setBookValue(QString bookvalue);
 
+    bool eventFilter(QObject *object, QEvent *event);
+
+signals:
+    void deleteThis(TransactionNode *);
+
+private slots:
+
+    void on_delete_2_clicked();
+
 private:
     Ui::TransactionNode *ui;
     QSqlDatabase db;

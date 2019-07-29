@@ -28,6 +28,13 @@ public:
 private slots:
     void on_save_clicked();
 
+    void on_addTransaction_clicked();
+
+    void on_revert_clicked();
+
+    void deleteThis(TransactionNode *);
+
+
 private:
     Ui::GainLossCalculator *ui;
     QSqlDatabase db;

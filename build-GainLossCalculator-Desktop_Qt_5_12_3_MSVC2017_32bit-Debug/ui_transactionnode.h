@@ -14,6 +14,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -38,6 +39,7 @@ public:
     QLineEdit *commissions;
     QLabel *bookvalue;
     QLabel *acb;
+    QPushButton *delete_2;
 
     void setupUi(QWidget *TransactionNode)
     {
@@ -175,6 +177,16 @@ public:
 
         horizontalLayout->addWidget(acb);
 
+        delete_2 = new QPushButton(TransactionNode);
+        delete_2->setObjectName(QString::fromUtf8("delete_2"));
+        sizePolicy1.setHeightForWidth(delete_2->sizePolicy().hasHeightForWidth());
+        delete_2->setSizePolicy(sizePolicy1);
+        delete_2->setMinimumSize(QSize(40, 30));
+        delete_2->setMaximumSize(QSize(40, 30));
+        delete_2->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 0, 0);"));
+
+        horizontalLayout->addWidget(delete_2);
+
 
         retranslateUi(TransactionNode);
 
@@ -188,6 +200,7 @@ public:
         label_2->setText(QApplication::translate("TransactionNode", "/", nullptr));
         bookvalue->setText(QString());
         acb->setText(QString());
+        delete_2->setText(QApplication::translate("TransactionNode", "Delete", nullptr));
     } // retranslateUi
 
 };
