@@ -33,12 +33,9 @@ public:
     QLineEdit *buy;
     QLineEdit *sell;
     QLineEdit *description;
-    QLineEdit *price;
     QLineEdit *cost;
     QLineEdit *proceeds;
     QLineEdit *commissions;
-    QLabel *bookvalue;
-    QLabel *acb;
     QPushButton *delete_2;
 
     void setupUi(QWidget *TransactionNode)
@@ -128,15 +125,6 @@ public:
 
         horizontalLayout->addWidget(description);
 
-        price = new QLineEdit(TransactionNode);
-        price->setObjectName(QString::fromUtf8("price"));
-        sizePolicy2.setHeightForWidth(price->sizePolicy().hasHeightForWidth());
-        price->setSizePolicy(sizePolicy2);
-        price->setMinimumSize(QSize(65, 0));
-        price->setReadOnly(true);
-
-        horizontalLayout->addWidget(price);
-
         cost = new QLineEdit(TransactionNode);
         cost->setObjectName(QString::fromUtf8("cost"));
         sizePolicy2.setHeightForWidth(cost->sizePolicy().hasHeightForWidth());
@@ -161,22 +149,6 @@ public:
 
         horizontalLayout->addWidget(commissions);
 
-        bookvalue = new QLabel(TransactionNode);
-        bookvalue->setObjectName(QString::fromUtf8("bookvalue"));
-        sizePolicy2.setHeightForWidth(bookvalue->sizePolicy().hasHeightForWidth());
-        bookvalue->setSizePolicy(sizePolicy2);
-        bookvalue->setMinimumSize(QSize(65, 18));
-
-        horizontalLayout->addWidget(bookvalue);
-
-        acb = new QLabel(TransactionNode);
-        acb->setObjectName(QString::fromUtf8("acb"));
-        sizePolicy2.setHeightForWidth(acb->sizePolicy().hasHeightForWidth());
-        acb->setSizePolicy(sizePolicy2);
-        acb->setMinimumSize(QSize(65, 18));
-
-        horizontalLayout->addWidget(acb);
-
         delete_2 = new QPushButton(TransactionNode);
         delete_2->setObjectName(QString::fromUtf8("delete_2"));
         sizePolicy1.setHeightForWidth(delete_2->sizePolicy().hasHeightForWidth());
@@ -198,8 +170,6 @@ public:
         TransactionNode->setWindowTitle(QApplication::translate("TransactionNode", "Form", nullptr));
         label->setText(QApplication::translate("TransactionNode", "/", nullptr));
         label_2->setText(QApplication::translate("TransactionNode", "/", nullptr));
-        bookvalue->setText(QString());
-        acb->setText(QString());
         delete_2->setText(QApplication::translate("TransactionNode", "Delete", nullptr));
     } // retranslateUi
 

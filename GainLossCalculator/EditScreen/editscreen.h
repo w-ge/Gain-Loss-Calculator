@@ -1,29 +1,31 @@
-#ifndef GAINLOSSCALCULATOR_H
-#define GAINLOSSCALCULATOR_H
+#ifndef EDITSCREEN_H
+#define EDITSCREEN_H
 
 #include <QWidget>
 #include <list>
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QSqlError>
-#include "./TransactionNode/transactionnode.h"
+#include "../TransactionNode/transactionnode.h"
 
 
 namespace Ui {
-class GainLossCalculator;
+class EditScreen;
 }
 
-class GainLossCalculator : public QWidget
+class EditScreen : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit GainLossCalculator(QWidget *parent = nullptr);
-    ~GainLossCalculator();
+    explicit EditScreen(QWidget *parent = nullptr);
+    ~EditScreen();
 
     void buildNodes();
 
-    void calculateACB();
+signals:
+
+    void goToTransaction();
 
 private slots:
     void on_save_clicked();
@@ -34,11 +36,12 @@ private slots:
 
     void deleteThis(TransactionNode *);
 
+    void on_cancel_clicked();
 
 private:
-    Ui::GainLossCalculator *ui;
+    Ui::EditScreen *ui;
     QSqlDatabase db;
     std::list <TransactionNode *> nodes;
 };
 
-#endif // GAINLOSSCALCULATOR_H
+#endif // EDITSCREEN_H

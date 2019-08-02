@@ -1,10 +1,10 @@
-#include "gainlosscalculator.h"
+#include "stackedwidget.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    GainLossCalculator w;
+    StackedWidget w;
     w.show();
 
     return a.exec();

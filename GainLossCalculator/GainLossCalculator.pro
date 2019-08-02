@@ -25,17 +25,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        EditScreen/editscreen.cpp \
         TransactionNode/transactionnode.cpp \
+        TransactionScreen/transactionscreen.cpp \
         main.cpp \
-        gainlosscalculator.cpp
+        stackedwidget.cpp \
 
 HEADERS += \
+        EditScreen/editscreen.h \
         TransactionNode/transactionnode.h \
-        gainlosscalculator.h
+        TransactionScreen/transactionscreen.h \
+        stackedwidget.h \
+
 
 FORMS += \
+        EditScreen/editscreen.ui \
         TransactionNode/transactionnode.ui \
-        gainlosscalculator.ui
+        TransactionScreen/transactionscreen.ui \
+        stackedwidget.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

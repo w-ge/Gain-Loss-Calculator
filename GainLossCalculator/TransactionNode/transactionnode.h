@@ -26,18 +26,11 @@ public:
     bool buy;
     int number;
     QString description;
-    double price;
     double cost;
     double proceeds;
     double commission;
 
     void update();
-
-    void setACB(QString acb);
-
-    void setBookValue(QString bookvalue);
-
-    bool eventFilter(QObject *object, QEvent *event);
 
 signals:
     void deleteThis(TransactionNode *);
@@ -45,6 +38,10 @@ signals:
 private slots:
 
     void on_delete_2_clicked();
+
+    void on_buy_textChanged(const QString &text);
+
+    void on_sell_textChanged(const QString &text);
 
 private:
     Ui::TransactionNode *ui;

@@ -1,43 +1,20 @@
-#include "gainlosscalculator.h"
-#include "ui_gainlosscalculator.h"
+#include "editscreen.h"
+#include "ui_editscreen.h"
 
-GainLossCalculator::GainLossCalculator(QWidget *parent) :
+EditScreen::EditScreen(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::GainLossCalculator)
+    ui(new Ui::EditScreen)
 {
     ui->setupUi(this);
-    db = QSqlDatabase::addDatabase("QSQLITE", "securities");
-    db.setDatabaseName("../data.db");
 
-    if(!db.open()){
-        qDebug()<< "Failed";
-        return;
-    }
+    db = QSqlDatabase::database("securities");
+    buildNodes();
 
-    else{
-        qDebug()<< "Connected";
-        buildNodes();
-        this->setWindowState(Qt::WindowMaximized);
-    }
+
 }
 
-void GainLossCalculator::calculateACB(){
-    double totalCost = 0;
-    double totalShares = 0;
 
-    for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
-        if((*it)->buy){
-            totalCost += (*it)->price * (*it)->number;
-            totalShares += (*it)->number;
-            (*it)->setACB(QString::number(totalCost / totalShares,'f',2));
-        }
-        else {
-            (*it)->setBookValue(QString::number(totalCost / totalShares * (*it)->number,'f',2));
-        }
-    }
-}
-
-void GainLossCalculator::buildNodes(){
+void EditScreen::buildNodes(){
     QSqlQuery query(db);
 
     query.exec("SELECT COUNT(*) FROM Security1;");
@@ -60,20 +37,19 @@ void GainLossCalculator::buildNodes(){
         connect(*it, SIGNAL(deleteThis(TransactionNode*)), this, SLOT(deleteThis(TransactionNode *)));
     }
     ui->transactions->addStretch();
-    calculateACB();
 }
-GainLossCalculator::~GainLossCalculator()
+EditScreen::~EditScreen()
 {
     delete ui;
 }
 
-void GainLossCalculator::deleteThis(TransactionNode * tn){
-    qDebug() << "Here";
+void EditScreen::deleteThis(TransactionNode * tn){
     nodes.remove(tn);
     ui->transactions->removeWidget(tn);
     delete tn;
 }
-void GainLossCalculator::on_save_clicked()
+
+void EditScreen::on_save_clicked()
 {
     QSqlQuery query(db);
     query.exec("DELETE FROM Security1;");
@@ -93,10 +69,9 @@ void GainLossCalculator::on_save_clicked()
         query.bindValue(":commission", (*it)->commission);
         query.exec();
     }
-    calculateACB();
 }
 
-void GainLossCalculator::on_addTransaction_clicked()
+void EditScreen::on_addTransaction_clicked()
 {
     nodes.push_back(new TransactionNode(nullptr, 1, 1, 2000,
                                         true, 1, "", 0,
@@ -107,7 +82,7 @@ void GainLossCalculator::on_addTransaction_clicked()
 }
 
 
-void GainLossCalculator::on_revert_clicked()
+void EditScreen::on_revert_clicked()
 {
     QLayoutItem *child;
     while ((child = ui->transactions->takeAt(0)) != nullptr) {
@@ -115,4 +90,9 @@ void GainLossCalculator::on_revert_clicked()
     }
     nodes.clear();
     buildNodes();
+}
+
+void EditScreen::on_cancel_clicked()
+{
+    emit goToTransaction();
 }
