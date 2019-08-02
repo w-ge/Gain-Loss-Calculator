@@ -9,8 +9,30 @@ TransactionScreen::TransactionScreen(QWidget *parent) :
 
     numOfArgs = 10;
 
+    QFont font = QFont("Helvetica", 14);
+
+    ui->date->setFont(font);
+    ui->buy->setFont(font);
+    ui->sell->setFont(font);
+    ui->description->setFont(font);
+    ui->price->setFont(font);
+    ui->cost->setFont(font);
+    ui->proceeds->setFont(font);
+    ui->comissions->setFont(font);
+    ui->bookValue->setFont(font);
+    ui->avgCB->setFont(font);
+    ui->gainLoss->setFont(font);
+
+
+
+
+    this->setStyleSheet("QScrollBar:vertical {background: white;}"
+                        "QScrollBar:handle:vertical {background: grey;}");
+
     db = QSqlDatabase::database("securities");
     build();
+
+
 }
 
 TransactionScreen::~TransactionScreen()

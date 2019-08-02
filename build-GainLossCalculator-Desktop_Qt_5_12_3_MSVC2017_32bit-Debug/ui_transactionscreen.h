@@ -28,17 +28,17 @@ public:
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout;
     QGridLayout *transactions;
-    QLabel *label_7;
-    QLabel *label;
-    QLabel *label_4;
-    QLabel *label_3;
-    QLabel *label_9;
-    QLabel *label_10;
-    QLabel *label_8;
-    QLabel *label_6;
-    QLabel *label_5;
-    QLabel *label_2;
-    QLabel *label_11;
+    QLabel *proceeds;
+    QLabel *date;
+    QLabel *description;
+    QLabel *sell;
+    QLabel *bookValue;
+    QLabel *avgCB;
+    QLabel *comissions;
+    QLabel *cost;
+    QLabel *price;
+    QLabel *buy;
+    QLabel *gainLoss;
     QPushButton *edit;
 
     void setupUi(QWidget *TransactionScreen)
@@ -58,81 +58,116 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         transactions = new QGridLayout();
         transactions->setObjectName(QString::fromUtf8("transactions"));
-        label_7 = new QLabel(scrollAreaWidgetContents);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setMinimumSize(QSize(0, 30));
-        label_7->setAlignment(Qt::AlignCenter);
+        transactions->setVerticalSpacing(30);
+        proceeds = new QLabel(scrollAreaWidgetContents);
+        proceeds->setObjectName(QString::fromUtf8("proceeds"));
+        proceeds->setMinimumSize(QSize(0, 30));
+        proceeds->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        proceeds->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_7, 0, 6, 1, 1);
+        transactions->addWidget(proceeds, 0, 6, 1, 1);
 
-        label = new QLabel(scrollAreaWidgetContents);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setMinimumSize(QSize(0, 30));
-        label->setAlignment(Qt::AlignCenter);
+        date = new QLabel(scrollAreaWidgetContents);
+        date->setObjectName(QString::fromUtf8("date"));
+        date->setMinimumSize(QSize(0, 30));
+        date->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        date->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label, 0, 0, 1, 1);
+        transactions->addWidget(date, 0, 0, 1, 1);
 
-        label_4 = new QLabel(scrollAreaWidgetContents);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setMinimumSize(QSize(0, 30));
-        label_4->setAlignment(Qt::AlignCenter);
+        description = new QLabel(scrollAreaWidgetContents);
+        description->setObjectName(QString::fromUtf8("description"));
+        description->setMinimumSize(QSize(0, 30));
+        description->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        description->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_4, 0, 3, 1, 1);
+        transactions->addWidget(description, 0, 3, 1, 1);
 
-        label_3 = new QLabel(scrollAreaWidgetContents);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setMinimumSize(QSize(0, 30));
-        label_3->setAlignment(Qt::AlignCenter);
+        sell = new QLabel(scrollAreaWidgetContents);
+        sell->setObjectName(QString::fromUtf8("sell"));
+        sell->setMinimumSize(QSize(0, 30));
+        sell->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        sell->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_3, 0, 2, 1, 1);
+        transactions->addWidget(sell, 0, 2, 1, 1);
 
-        label_9 = new QLabel(scrollAreaWidgetContents);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setMinimumSize(QSize(0, 30));
-        label_9->setAlignment(Qt::AlignCenter);
+        bookValue = new QLabel(scrollAreaWidgetContents);
+        bookValue->setObjectName(QString::fromUtf8("bookValue"));
+        bookValue->setMinimumSize(QSize(0, 30));
+        bookValue->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        bookValue->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_9, 0, 8, 1, 1);
+        transactions->addWidget(bookValue, 0, 8, 1, 1);
 
-        label_10 = new QLabel(scrollAreaWidgetContents);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setMinimumSize(QSize(0, 30));
-        label_10->setAlignment(Qt::AlignCenter);
+        avgCB = new QLabel(scrollAreaWidgetContents);
+        avgCB->setObjectName(QString::fromUtf8("avgCB"));
+        avgCB->setMinimumSize(QSize(0, 30));
+        avgCB->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        avgCB->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_10, 0, 9, 1, 1);
+        transactions->addWidget(avgCB, 0, 9, 1, 1);
 
-        label_8 = new QLabel(scrollAreaWidgetContents);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setMinimumSize(QSize(0, 30));
-        label_8->setAlignment(Qt::AlignCenter);
+        comissions = new QLabel(scrollAreaWidgetContents);
+        comissions->setObjectName(QString::fromUtf8("comissions"));
+        comissions->setMinimumSize(QSize(0, 30));
+        comissions->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        comissions->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_8, 0, 7, 1, 1);
+        transactions->addWidget(comissions, 0, 7, 1, 1);
 
-        label_6 = new QLabel(scrollAreaWidgetContents);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setMinimumSize(QSize(0, 30));
-        label_6->setAlignment(Qt::AlignCenter);
+        cost = new QLabel(scrollAreaWidgetContents);
+        cost->setObjectName(QString::fromUtf8("cost"));
+        cost->setMinimumSize(QSize(0, 30));
+        cost->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        cost->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_6, 0, 5, 1, 1);
+        transactions->addWidget(cost, 0, 5, 1, 1);
 
-        label_5 = new QLabel(scrollAreaWidgetContents);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setMinimumSize(QSize(0, 30));
-        label_5->setAlignment(Qt::AlignCenter);
+        price = new QLabel(scrollAreaWidgetContents);
+        price->setObjectName(QString::fromUtf8("price"));
+        price->setMinimumSize(QSize(0, 30));
+        price->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        price->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_5, 0, 4, 1, 1);
+        transactions->addWidget(price, 0, 4, 1, 1);
 
-        label_2 = new QLabel(scrollAreaWidgetContents);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setMinimumSize(QSize(0, 30));
-        label_2->setAlignment(Qt::AlignCenter);
+        buy = new QLabel(scrollAreaWidgetContents);
+        buy->setObjectName(QString::fromUtf8("buy"));
+        buy->setMinimumSize(QSize(0, 30));
+        buy->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        buy->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_2, 0, 1, 1, 1);
+        transactions->addWidget(buy, 0, 1, 1, 1);
 
-        label_11 = new QLabel(scrollAreaWidgetContents);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-        label_11->setAlignment(Qt::AlignCenter);
+        gainLoss = new QLabel(scrollAreaWidgetContents);
+        gainLoss->setObjectName(QString::fromUtf8("gainLoss"));
+        gainLoss->setMinimumSize(QSize(0, 30));
+        gainLoss->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid white;"));
+        gainLoss->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-        transactions->addWidget(label_11, 0, 10, 1, 1);
+        transactions->addWidget(gainLoss, 0, 10, 1, 1);
 
 
         gridLayout->addLayout(transactions, 0, 0, 1, 1);
@@ -155,17 +190,17 @@ public:
     void retranslateUi(QWidget *TransactionScreen)
     {
         TransactionScreen->setWindowTitle(QApplication::translate("TransactionScreen", "Form", nullptr));
-        label_7->setText(QApplication::translate("TransactionScreen", "Proceeds", nullptr));
-        label->setText(QApplication::translate("TransactionScreen", "Date", nullptr));
-        label_4->setText(QApplication::translate("TransactionScreen", "Description", nullptr));
-        label_3->setText(QApplication::translate("TransactionScreen", "Sell", nullptr));
-        label_9->setText(QApplication::translate("TransactionScreen", "Book Value", nullptr));
-        label_10->setText(QApplication::translate("TransactionScreen", "Average Cost Base", nullptr));
-        label_8->setText(QApplication::translate("TransactionScreen", "Comissions", nullptr));
-        label_6->setText(QApplication::translate("TransactionScreen", "Cost", nullptr));
-        label_5->setText(QApplication::translate("TransactionScreen", "Price", nullptr));
-        label_2->setText(QApplication::translate("TransactionScreen", "Buy", nullptr));
-        label_11->setText(QApplication::translate("TransactionScreen", "Gain/Loss", nullptr));
+        proceeds->setText(QApplication::translate("TransactionScreen", "Proceeds", nullptr));
+        date->setText(QApplication::translate("TransactionScreen", "Date", nullptr));
+        description->setText(QApplication::translate("TransactionScreen", "Description", nullptr));
+        sell->setText(QApplication::translate("TransactionScreen", "Sell", nullptr));
+        bookValue->setText(QApplication::translate("TransactionScreen", "Book Value", nullptr));
+        avgCB->setText(QApplication::translate("TransactionScreen", "Average Cost Base", nullptr));
+        comissions->setText(QApplication::translate("TransactionScreen", "Comissions", nullptr));
+        cost->setText(QApplication::translate("TransactionScreen", "Cost", nullptr));
+        price->setText(QApplication::translate("TransactionScreen", "Price", nullptr));
+        buy->setText(QApplication::translate("TransactionScreen", "Buy", nullptr));
+        gainLoss->setText(QApplication::translate("TransactionScreen", "Gain/Loss", nullptr));
         edit->setText(QApplication::translate("TransactionScreen", "Edit", nullptr));
     } // retranslateUi
 

@@ -10,7 +10,17 @@ EditScreen::EditScreen(QWidget *parent) :
     db = QSqlDatabase::database("securities");
     buildNodes();
 
+    this->setStyleSheet("QScrollBar:vertical {background: white;}"
+                        "QScrollBar:handle:vertical {background: grey;}");
 
+    QFont font = QFont("Helvetica", 14);
+
+    ui->Date->setFont(font);
+    ui->Buy->setFont(font);
+    ui->Sell->setFont(font);
+    ui->CostProceeds->setFont(font);
+    ui->Desc->setFont(font);
+    ui->Commission->setFont(font);
 }
 
 

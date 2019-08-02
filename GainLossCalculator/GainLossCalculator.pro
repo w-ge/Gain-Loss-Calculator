@@ -29,12 +29,14 @@ SOURCES += \
         TransactionNode/transactionnode.cpp \
         TransactionScreen/transactionscreen.cpp \
         main.cpp \
+    securitymenu.cpp \
         stackedwidget.cpp \
 
 HEADERS += \
         EditScreen/editscreen.h \
         TransactionNode/transactionnode.h \
         TransactionScreen/transactionscreen.h \
+    securitymenu.h \
         stackedwidget.h \
 
 
@@ -42,9 +44,13 @@ FORMS += \
         EditScreen/editscreen.ui \
         TransactionNode/transactionnode.ui \
         TransactionScreen/transactionscreen.ui \
+    securitymenu.ui \
         stackedwidget.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc

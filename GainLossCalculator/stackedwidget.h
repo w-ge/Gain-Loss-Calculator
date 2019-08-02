@@ -5,6 +5,7 @@
 #include "./TransactionScreen/transactionscreen.h"
 #include "./EditScreen/editscreen.h"
 #include <QStackedWidget>
+#include <QFontDatabase>
 
 namespace Ui {
 class StackedWidget;

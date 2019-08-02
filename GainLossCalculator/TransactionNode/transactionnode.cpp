@@ -26,7 +26,6 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
     ui->sell->setValidator(new QIntValidator(1, 2147483647));
 
     ui->cost->setValidator(new QDoubleValidator(0, 2147483647, 2));
-    ui->proceeds->setValidator(new QDoubleValidator(0, 2147483647, 2));
     ui->commissions->setValidator(new QDoubleValidator(0, 2147483647, 2));
 
     ui->day->setText(QString::number(day));
@@ -42,7 +41,6 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
 
     ui->description->setText(description);
     ui->cost->setText(QString::number(cost,'f',2));
-    ui->proceeds->setText(QString::number(proceeds,'f',2));
     ui->commissions->setText(QString::number(commission,'f',2));
 }
 
@@ -66,7 +64,6 @@ void TransactionNode::update(){
     }
     description = ui->description->text();
     cost = ui->cost->text().toDouble();
-    proceeds = ui->proceeds->text().toDouble();
     commission = ui->commissions->text().toDouble();
 }
 

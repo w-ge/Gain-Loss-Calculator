@@ -6,6 +6,7 @@ StackedWidget::StackedWidget(QWidget *parent) :
     ui(new Ui::StackedWidget)
 {
     ui->setupUi(this);
+    QFontDatabase::addApplicationFont(":/font/Fonts/Helvetica.ttf");
 
     db = QSqlDatabase::addDatabase("QSQLITE", "securities");
     db.setDatabaseName("../data.db");
