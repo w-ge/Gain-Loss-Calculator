@@ -18,14 +18,14 @@ class EditScreen : public QWidget
     Q_OBJECT
 
 public:
-    explicit EditScreen(QWidget *parent = nullptr);
+    explicit EditScreen(QWidget *parent = nullptr, QString text = "");
     ~EditScreen();
 
     void buildNodes();
 
 signals:
 
-    void goToTransaction();
+    void goToTransaction(QString);
 
 private slots:
     void on_save_clicked();
@@ -42,6 +42,7 @@ private:
     Ui::EditScreen *ui;
     QSqlDatabase db;
     std::list <TransactionNode *> nodes;
+    QString tableName;
 };
 
 #endif // EDITSCREEN_H

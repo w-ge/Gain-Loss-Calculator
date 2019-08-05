@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>966</width>
-    <height>50</height>
+    <width>963</width>
+    <height>30</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,11 +18,49 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
-    <number>8</number>
+    <number>6</number>
    </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QLineEdit" name="description">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>145</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>145</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>abcdefghijklmnopqrstuvwxy</string>
+     </property>
+    </widget>
+   </item>
    <item>
     <widget class="QWidget" name="widget" native="true">
      <property name="sizePolicy">
@@ -68,7 +106,11 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
         </property>
        </widget>
       </item>
@@ -94,7 +136,11 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
         </property>
        </widget>
       </item>
@@ -120,7 +166,11 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
         </property>
        </widget>
       </item>
@@ -142,7 +192,11 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
      </property>
     </widget>
    </item>
@@ -161,26 +215,11 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLineEdit" name="description">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>65</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
      </property>
     </widget>
    </item>
@@ -199,7 +238,11 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
      </property>
     </widget>
    </item>
@@ -218,7 +261,11 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">border-width: 1px; 
+border-style: solid;
+ border-color: white white black white;
+background-color: rgb(255, 255, 255);
+</string>
      </property>
     </widget>
    </item>
@@ -334,8 +381,7 @@
       </palette>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>

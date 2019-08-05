@@ -28,6 +28,8 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
     ui->cost->setValidator(new QDoubleValidator(0, 2147483647, 2));
     ui->commissions->setValidator(new QDoubleValidator(0, 2147483647, 2));
 
+    ui->description->setMaxLength(25);
+
     ui->day->setText(QString::number(day));
     ui->month->setText(QString::number(month));
     ui->year->setText(QString::number(year));

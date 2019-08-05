@@ -19,11 +19,9 @@ StackedWidget::StackedWidget(QWidget *parent) :
     else{
 
         qDebug()<< "Connected";
-        ts = new TransactionScreen();
-
-        connect(ts, SIGNAL(goToEdit()), this, SLOT(goToEdit()));
-
-        this->insertWidget(0, ts);
+        sm = new SecurityMenu();
+        this->insertWidget(0, sm);
+        connect(sm, SIGNAL(securityToTransaction(QString)), this, SLOT(securityToTransaction(QString)));
 
         this->setWindowState(Qt::WindowMaximized);
         this->setWindowTitle("Gain and Loss Calculator");
@@ -35,23 +33,44 @@ StackedWidget::~StackedWidget()
     delete ui;
 }
 
-void StackedWidget::goToEdit(){
-    es = new EditScreen();
-    this->insertWidget(1, es);
+void StackedWidget::goToEdit(QString text){
+    es = new EditScreen(nullptr, text);
+    this->insertWidget(2, es);
     this->setCurrentWidget(es);
 
     this->removeWidget(ts);
     ts->deleteLater();
 
-    connect(es, SIGNAL(goToTransaction()), this, SLOT(goToTransaction()));
+    connect(es, SIGNAL(goToTransaction(QString)), this, SLOT(goToTransaction(QString)));
 }
 
-void StackedWidget::goToTransaction(){
-    ts = new TransactionScreen();
-    this->insertWidget(0, ts);
+void StackedWidget::goToTransaction(QString text){
+    ts = new TransactionScreen(nullptr, text);
+    this->insertWidget(1, ts);
     this->setCurrentWidget(ts);
-    connect(ts, SIGNAL(goToEdit()), this, SLOT(goToEdit()));
+    connect(ts, SIGNAL(goToEdit(QString)), this, SLOT(goToEdit(QString)));
+    connect(ts, SIGNAL(goToMenu()), this, SLOT(goToMenu()));
 
     this->removeWidget(es);
     es->deleteLater();
+}
+
+void StackedWidget::securityToTransaction(QString text){
+    ts = new TransactionScreen(nullptr, text);
+    this->insertWidget(1, ts);
+    this->setCurrentWidget(ts);
+    connect(ts, SIGNAL(goToEdit(QString)), this, SLOT(goToEdit(QString)));
+    connect(ts, SIGNAL(goToMenu()), this, SLOT(goToMenu()));
+
+    this->removeWidget(sm);
+    sm->deleteLater();
+}
+void StackedWidget::goToMenu(){
+    sm = new SecurityMenu();
+    this->insertWidget(0, sm);
+    this->setCurrentWidget(sm);
+    connect(sm, SIGNAL(securityToTransaction(QString)), this, SLOT(securityToTransaction(QString)));
+
+    this->removeWidget(ts);
+    ts->deleteLater();
 }

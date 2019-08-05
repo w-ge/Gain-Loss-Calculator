@@ -1,13 +1,15 @@
 #include "editscreen.h"
 #include "ui_editscreen.h"
 
-EditScreen::EditScreen(QWidget *parent) :
+EditScreen::EditScreen(QWidget *parent, QString text) :
     QWidget(parent),
     ui(new Ui::EditScreen)
 {
     ui->setupUi(this);
 
     db = QSqlDatabase::database("securities");
+
+    tableName = text;
     buildNodes();
 
     this->setStyleSheet("QScrollBar:vertical {background: white;}"
@@ -27,19 +29,13 @@ EditScreen::EditScreen(QWidget *parent) :
 void EditScreen::buildNodes(){
     QSqlQuery query(db);
 
-    query.exec("SELECT COUNT(*) FROM Security1;");
-    query.next();
+    query.prepare(tr("SELECT * FROM %1;").arg(tableName));
+    query.exec();
 
-    int numOfNodes = query.value(0).toInt();
-
-    query.exec("SELECT * FROM Security1");
-    query.next();
-
-    for(int i = 0; i < numOfNodes ; i++){
+    while(query.next()){
         nodes.push_back(new TransactionNode(nullptr, query.value(1).toInt(), query.value(2).toInt(), query.value(3).toInt(),
                                             query.value(4).toBool(), query.value(5).toInt(), query.value(6).toString(), query.value(7).toDouble(),
                                             query.value(8).toDouble(), query.value(9).toDouble()));
-        query.next();
     }
 
     for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
@@ -62,12 +58,14 @@ void EditScreen::deleteThis(TransactionNode * tn){
 void EditScreen::on_save_clicked()
 {
     QSqlQuery query(db);
-    query.exec("DELETE FROM Security1;");
+    query.exec(tr("DELETE FROM %1;").arg(tableName));
+
+    qDebug() << tableName;
 
     for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
         (*it)->update();
-        query.prepare("INSERT INTO Security1 (Day, Month, Year, Buy, Number, SecurityDescription, Cost, Proceeds, Commission) VALUES "
-                      "(:day, :month, :year, :buy, :number, :desc, :cost, :proceeds, :commission)");
+        query.prepare(tr("INSERT INTO %1 (Day, Month, Year, Buy, Number, SecurityDescription, Cost, Proceeds, Commission) VALUES "
+                      "(:day, :month, :year, :buy, :number, :desc, :cost, :proceeds, :commission)").arg(tableName));
         query.bindValue(":day", (*it)->day);
         query.bindValue(":month", (*it)->month);
         query.bindValue(":year", (*it)->year);
@@ -104,5 +102,5 @@ void EditScreen::on_revert_clicked()
 
 void EditScreen::on_cancel_clicked()
 {
-    emit goToTransaction();
+    emit goToTransaction(tableName);
 }

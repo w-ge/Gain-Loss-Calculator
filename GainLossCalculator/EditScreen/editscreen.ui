@@ -67,7 +67,7 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout">
               <property name="spacing">
-               <number>0</number>
+               <number>6</number>
               </property>
               <property name="leftMargin">
                <number>0</number>
@@ -82,6 +82,39 @@
                <number>0</number>
               </property>
               <item>
+               <widget class="QLabel" name="Desc">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>145</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>145</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(13, 206, 0);
+color: rgb(255, 255, 255);
+border: 1px solid white;</string>
+                </property>
+                <property name="text">
+                 <string>Description</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QLabel" name="Date">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -91,14 +124,14 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>90</width>
+                  <width>85</width>
                   <height>0</height>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(14, 171, 255);
-border: 1px solid white</string>
+                 <string notr="true">background-color: rgb(13, 206, 0);
+color: rgb(255, 255, 255);
+border: 1px solid white;</string>
                 </property>
                 <property name="text">
                  <string>Date</string>
@@ -123,9 +156,9 @@ border: 1px solid white</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(14, 171, 255);
-border: 1px solid white</string>
+                 <string notr="true">background-color: rgb(13, 206, 0);
+color: rgb(255, 255, 255);
+border: 1px solid white;</string>
                 </property>
                 <property name="text">
                  <string>Buy</string>
@@ -150,39 +183,12 @@ border: 1px solid white</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(14, 171, 255);
-border: 1px solid white</string>
+                 <string notr="true">background-color: rgb(13, 206, 0);
+color: rgb(255, 255, 255);
+border: 1px solid white;</string>
                 </property>
                 <property name="text">
                  <string>Sell</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="Desc">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>65</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(14, 171, 255);
-border: 1px solid white</string>
-                </property>
-                <property name="text">
-                 <string>Description</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -204,9 +210,9 @@ border: 1px solid white</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(14, 171, 255);
-border: 1px solid white</string>
+                 <string notr="true">background-color: rgb(13, 206, 0);
+color: rgb(255, 255, 255);
+border: 1px solid white;</string>
                 </property>
                 <property name="text">
                  <string>Cost/Proceeds</string>
@@ -231,9 +237,9 @@ border: 1px solid white</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(14, 171, 255);
-border: 1px solid white</string>
+                 <string notr="true">background-color: rgb(13, 206, 0);
+color: rgb(255, 255, 255);
+border: 1px solid white;</string>
                 </property>
                 <property name="text">
                  <string>Commission</string>

@@ -63,17 +63,17 @@ static const uint qt_meta_data_EditScreen[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x06 /* Public */,
+       1,    1,   44,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   45,    2, 0x08 /* Private */,
-       4,    0,   46,    2, 0x08 /* Private */,
-       5,    0,   47,    2, 0x08 /* Private */,
-       6,    1,   48,    2, 0x08 /* Private */,
-       8,    0,   51,    2, 0x08 /* Private */,
+       3,    0,   47,    2, 0x08 /* Private */,
+       4,    0,   48,    2, 0x08 /* Private */,
+       5,    0,   49,    2, 0x08 /* Private */,
+       6,    1,   50,    2, 0x08 /* Private */,
+       8,    0,   53,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -91,7 +91,7 @@ void EditScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<EditScreen *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->goToTransaction(); break;
+        case 0: _t->goToTransaction((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->on_save_clicked(); break;
         case 2: _t->on_addTransaction_clicked(); break;
         case 3: _t->on_revert_clicked(); break;
@@ -113,7 +113,7 @@ void EditScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (EditScreen::*)();
+            using _t = void (EditScreen::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&EditScreen::goToTransaction)) {
                 *result = 0;
                 return;
@@ -163,9 +163,10 @@ int EditScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void EditScreen::goToTransaction()
+void EditScreen::goToTransaction(QString _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

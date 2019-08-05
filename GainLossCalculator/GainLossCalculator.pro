@@ -30,6 +30,7 @@ SOURCES += \
         TransactionScreen/transactionscreen.cpp \
         main.cpp \
     securitymenu.cpp \
+    securitynode.cpp \
         stackedwidget.cpp \
 
 HEADERS += \
@@ -37,6 +38,7 @@ HEADERS += \
         TransactionNode/transactionnode.h \
         TransactionScreen/transactionscreen.h \
     securitymenu.h \
+    securitynode.h \
         stackedwidget.h \
 
 
@@ -45,6 +47,7 @@ FORMS += \
         TransactionNode/transactionnode.ui \
         TransactionScreen/transactionscreen.ui \
     securitymenu.ui \
+    securitynode.ui \
         stackedwidget.ui \
 
 # Default rules for deployment.

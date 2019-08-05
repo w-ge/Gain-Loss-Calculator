@@ -4,6 +4,7 @@
 #include "./TransactionNode/transactionnode.h"
 #include "./TransactionScreen/transactionscreen.h"
 #include "./EditScreen/editscreen.h"
+#include "securitymenu.h"
 #include <QStackedWidget>
 #include <QFontDatabase>
 
@@ -23,12 +24,15 @@ private:
     Ui::StackedWidget *ui;
     TransactionScreen * ts;
     EditScreen * es;
+    SecurityMenu * sm;
 
     QSqlDatabase db;
 
 private slots:
-    void goToTransaction();
-    void goToEdit();
+    void goToTransaction(QString);
+    void goToEdit(QString);
+    void securityToTransaction(QString);
+    void goToMenu();
 };
 
 #endif // STACKEDWIDGET_H

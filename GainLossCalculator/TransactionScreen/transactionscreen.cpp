@@ -1,7 +1,7 @@
 #include "transactionscreen.h"
 #include "ui_transactionscreen.h"
 
-TransactionScreen::TransactionScreen(QWidget *parent) :
+TransactionScreen::TransactionScreen(QWidget *parent, QString text) :
     QWidget(parent),
     ui(new Ui::TransactionScreen)
 {
@@ -10,6 +10,8 @@ TransactionScreen::TransactionScreen(QWidget *parent) :
     numOfArgs = 10;
 
     QFont font = QFont("Helvetica", 14);
+
+    tableName = text;
 
     ui->date->setFont(font);
     ui->buy->setFont(font);
@@ -42,7 +44,7 @@ TransactionScreen::~TransactionScreen()
 
 void TransactionScreen::on_edit_clicked()
 {
-    emit goToEdit();
+    emit goToEdit(tableName);
 }
 
 
@@ -52,21 +54,15 @@ void TransactionScreen::build(){
     double totalShares = 0;
     double avgCostBase = 0;
 
-    query.exec("SELECT COUNT(*) FROM Security1;");
-    query.next();
+    query.prepare(tr("SELECT * FROM %1;").arg(tableName));
+    query.exec();
 
-    int numOfNodes = query.value(0).toInt();
-
-    query.exec("SELECT * FROM Security1;");
-
-    query.next();
-
-    for(int i = 1; i < numOfNodes + 1; i++){
-
+    int i = 1;
+    while(query.next()){
         QLabel * date = new QLabel();
         date->setAlignment(Qt::AlignHCenter);
         date->setText(query.value(1).toString() + "/" +  query.value(2).toString() + "/" + query.value(3).toString());
-        ui->transactions->addWidget(date, i, 0 );
+        ui->transactions->addWidget(date, i, 1 );
 
         QLabel * num = new QLabel();
         num->setText(query.value(5).toString());
@@ -78,24 +74,21 @@ void TransactionScreen::build(){
 
 
         if(query.value(4).toBool()){
-                ui->transactions->addWidget(num, i, 1 );
+                ui->transactions->addWidget(num, i, 2 );
                 ui->transactions->addWidget(cost, i, 5);
         }
         else {
-            ui->transactions->addWidget(num, i, 2 );
+            ui->transactions->addWidget(num, i, 3 );
             ui->transactions->addWidget(cost, i, 6);
         }
 
         QLabel * desc = new QLabel();
         desc->setText(query.value(6).toString());
         desc->setAlignment(Qt::AlignHCenter);
-        ui->transactions->addWidget(desc, i, 3);
-
-
-
+        ui->transactions->addWidget(desc, i, 0);
 
         QLabel * price = new QLabel();
-        price->setText(QString::number(query.value(7).toInt() / query.value(5).toInt(),'f',2));
+        price->setText(QString::number(query.value(7).toDouble() / query.value(5).toDouble(),'f',2));
         price->setAlignment(Qt::AlignHCenter);
         ui->transactions->addWidget(price, i, 4);
 
@@ -138,8 +131,13 @@ void TransactionScreen::build(){
             ui->transactions->addWidget(bookVal, i, 8);
         }
 
-        query.next();
+        i++;
     }
 
-    ui->transactions->setRowStretch(numOfNodes + 1, 1);
+    ui->transactions->setRowStretch(i + 1, 1);
+}
+
+void TransactionScreen::on_back_clicked()
+{
+    emit goToMenu();
 }
