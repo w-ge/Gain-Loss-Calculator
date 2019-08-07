@@ -62,6 +62,7 @@ public:
 " border-color: white white black white;\n"
 "background-color: rgb(255, 255, 255);\n"
 ""));
+        description->setReadOnly(true);
 
         horizontalLayout->addWidget(description);
 
@@ -219,7 +220,7 @@ public:
     void retranslateUi(QWidget *TransactionNode)
     {
         TransactionNode->setWindowTitle(QApplication::translate("TransactionNode", "Form", nullptr));
-        description->setText(QApplication::translate("TransactionNode", "abcdefghijklmnopqrstuvwxy", nullptr));
+        description->setText(QString());
         label->setText(QApplication::translate("TransactionNode", "/", nullptr));
         label_2->setText(QApplication::translate("TransactionNode", "/", nullptr));
         delete_2->setText(QString());

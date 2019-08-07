@@ -40,6 +40,7 @@ public:
     QLabel *date;
     QLabel *cost;
     QLabel *gainLoss;
+    QLabel *total;
     QHBoxLayout *horizontalLayout;
     QPushButton *edit;
     QPushButton *back;
@@ -56,7 +57,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 808, 499));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 808, 451));
         gridLayout = new QGridLayout(scrollAreaWidgetContents);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         transactions = new QGridLayout();
@@ -179,6 +180,15 @@ public:
 
         verticalLayout->addWidget(scrollArea);
 
+        total = new QLabel(TransactionScreen);
+        total->setObjectName(QString::fromUtf8("total"));
+        QFont font;
+        font.setPointSize(26);
+        total->setFont(font);
+        total->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        verticalLayout->addWidget(total);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         edit = new QPushButton(TransactionScreen);
@@ -214,6 +224,7 @@ public:
         date->setText(QApplication::translate("TransactionScreen", "Date", nullptr));
         cost->setText(QApplication::translate("TransactionScreen", "Cost", nullptr));
         gainLoss->setText(QApplication::translate("TransactionScreen", "Gain/Loss", nullptr));
+        total->setText(QApplication::translate("TransactionScreen", "Total: $0.00", nullptr));
         edit->setText(QApplication::translate("TransactionScreen", "Edit", nullptr));
         back->setText(QApplication::translate("TransactionScreen", "Back", nullptr));
     } // retranslateUi

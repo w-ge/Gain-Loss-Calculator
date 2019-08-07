@@ -54,9 +54,7 @@ void SecurityMenu::on_add_clicked()
                           ", [Year] bigint DEFAULT (2000) NOT NULL"
                           ", [Buy] bit DEFAULT (1) NOT NULL"
                           ", [Number] bigint DEFAULT (1) NOT NULL"
-                          ", [SecurityDescription] text NULL"
                           ", [Cost] decimal DEFAULT (0) NOT NULL"
-                          ", [Proceeds] decimal DEFAULT (0) NOT NULL"
                           ", [Commission] decimal DEFAULT (0) NOT NULL"
                           ");").arg(text));
             refresh();

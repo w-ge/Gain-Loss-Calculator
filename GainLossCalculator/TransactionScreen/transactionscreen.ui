@@ -25,7 +25,7 @@
         <x>0</x>
         <y>0</y>
         <width>808</width>
-        <height>499</height>
+        <height>451</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -269,6 +269,21 @@ border: 1px solid white;</string>
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="total">
+     <property name="font">
+      <font>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Total: $0.00</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
     </widget>
    </item>
    <item>

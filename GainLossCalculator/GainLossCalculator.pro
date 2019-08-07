@@ -26,28 +26,28 @@ CONFIG += c++11
 
 SOURCES += \
         EditScreen/editscreen.cpp \
+    SecurityMenu/securitymenu.cpp \
+    SecurityMenu/securitynode.cpp \
         TransactionNode/transactionnode.cpp \
         TransactionScreen/transactionscreen.cpp \
         main.cpp \
-    securitymenu.cpp \
-    securitynode.cpp \
         stackedwidget.cpp \
 
 HEADERS += \
         EditScreen/editscreen.h \
+    SecurityMenu/securitymenu.h \
+    SecurityMenu/securitynode.h \
         TransactionNode/transactionnode.h \
         TransactionScreen/transactionscreen.h \
-    securitymenu.h \
-    securitynode.h \
         stackedwidget.h \
 
 
 FORMS += \
         EditScreen/editscreen.ui \
+    SecurityMenu/securitymenu.ui \
+    SecurityMenu/securitynode.ui \
         TransactionNode/transactionnode.ui \
         TransactionScreen/transactionscreen.ui \
-    securitymenu.ui \
-    securitynode.ui \
         stackedwidget.ui \
 
 # Default rules for deployment.

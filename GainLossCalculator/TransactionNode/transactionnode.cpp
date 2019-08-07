@@ -2,7 +2,7 @@
 #include "ui_transactionnode.h"
 
 TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, int n, QString desc,
-                                 double c, double p, double com) :
+                                 double c, double com) :
     QWidget(parent),
     ui(new Ui::TransactionNode)
 {
@@ -15,7 +15,6 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
     number = n;
     description = desc;
     cost = c;
-    proceeds = p;
     commission = com;
 
     ui->day->setValidator(new QIntValidator(1, 31));
@@ -27,8 +26,6 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
 
     ui->cost->setValidator(new QDoubleValidator(0, 2147483647, 2));
     ui->commissions->setValidator(new QDoubleValidator(0, 2147483647, 2));
-
-    ui->description->setMaxLength(25);
 
     ui->day->setText(QString::number(day));
     ui->month->setText(QString::number(month));

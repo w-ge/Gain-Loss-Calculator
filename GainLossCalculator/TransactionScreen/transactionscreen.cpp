@@ -53,6 +53,7 @@ void TransactionScreen::build(){
     double totalCost = 0;
     double totalShares = 0;
     double avgCostBase = 0;
+    double totalGain = 0;
 
     query.prepare(tr("SELECT * FROM %1;").arg(tableName));
     query.exec();
@@ -69,7 +70,7 @@ void TransactionScreen::build(){
         num->setAlignment(Qt::AlignHCenter);
 
         QLabel * cost = new QLabel();
-        cost->setText(QString::number(query.value(7).toDouble(),'f',2));
+        cost->setText(QString::number(query.value(6).toDouble(),'f',2));
         cost->setAlignment(Qt::AlignHCenter);
 
 
@@ -83,17 +84,17 @@ void TransactionScreen::build(){
         }
 
         QLabel * desc = new QLabel();
-        desc->setText(query.value(6).toString());
+        desc->setText(tableName);
         desc->setAlignment(Qt::AlignHCenter);
         ui->transactions->addWidget(desc, i, 0);
 
         QLabel * price = new QLabel();
-        price->setText(QString::number(query.value(7).toDouble() / query.value(5).toDouble(),'f',2));
+        price->setText(QString::number(query.value(6).toDouble() / query.value(5).toDouble(),'f',2));
         price->setAlignment(Qt::AlignHCenter);
         ui->transactions->addWidget(price, i, 4);
 
         QLabel * com = new QLabel();
-        com->setText(query.value(9).toString());
+        com->setText(query.value(8).toString());
         com->setAlignment(Qt::AlignHCenter);
         ui->transactions->addWidget(com, i, 7);
 
@@ -121,6 +122,7 @@ void TransactionScreen::build(){
             gain->setText(QString::number(cost->text().toDouble() - (avgCostBase * num->text().toInt()),'f',2));
             gain->setAlignment(Qt::AlignHCenter);
             ui->transactions->addWidget(gain, i, 10);
+            totalGain += cost->text().toDouble() - (avgCostBase * num->text().toInt());
 
             totalShares -= num->text().toInt();
             totalCost = avgCostBase * totalShares;
@@ -133,7 +135,7 @@ void TransactionScreen::build(){
 
         i++;
     }
-
+    ui->total->setText("Total: $" + QString::number(totalGain, 'f', 2));
     ui->transactions->setRowStretch(i + 1, 1);
 }
 

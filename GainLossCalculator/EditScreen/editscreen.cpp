@@ -34,8 +34,8 @@ void EditScreen::buildNodes(){
 
     while(query.next()){
         nodes.push_back(new TransactionNode(nullptr, query.value(1).toInt(), query.value(2).toInt(), query.value(3).toInt(),
-                                            query.value(4).toBool(), query.value(5).toInt(), query.value(6).toString(), query.value(7).toDouble(),
-                                            query.value(8).toDouble(), query.value(9).toDouble()));
+                                            query.value(4).toBool(), query.value(5).toInt(), tableName, query.value(6).toDouble(),
+                                            query.value(7).toDouble()));
     }
 
     for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
@@ -64,16 +64,14 @@ void EditScreen::on_save_clicked()
 
     for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
         (*it)->update();
-        query.prepare(tr("INSERT INTO %1 (Day, Month, Year, Buy, Number, SecurityDescription, Cost, Proceeds, Commission) VALUES "
-                      "(:day, :month, :year, :buy, :number, :desc, :cost, :proceeds, :commission)").arg(tableName));
+        query.prepare(tr("INSERT INTO %1 (Day, Month, Year, Buy, Number, Cost, Commission) VALUES "
+                      "(:day, :month, :year, :buy, :number, :cost, :commission)").arg(tableName));
         query.bindValue(":day", (*it)->day);
         query.bindValue(":month", (*it)->month);
         query.bindValue(":year", (*it)->year);
         query.bindValue(":number", (*it)->number);
         query.bindValue(":buy", (*it)->buy);
-        query.bindValue(":desc", (*it)->description);
         query.bindValue(":cost", (*it)->cost);
-        query.bindValue(":proceeds", (*it)->proceeds);
         query.bindValue(":commission", (*it)->commission);
         query.exec();
     }
@@ -82,8 +80,8 @@ void EditScreen::on_save_clicked()
 void EditScreen::on_addTransaction_clicked()
 {
     nodes.push_back(new TransactionNode(nullptr, 1, 1, 2000,
-                                        true, 1, "", 0,
-                                        0, 0));
+                                        true, 1, tableName, 0,
+                                        0));
     ui->transactions->insertWidget(ui->transactions->count()-1, nodes.back());
 
     connect(nodes.back(), SIGNAL(deleteThis(TransactionNode*)), this, SLOT(deleteThis(TransactionNode *)));
