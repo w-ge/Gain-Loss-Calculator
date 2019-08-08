@@ -29,14 +29,14 @@ public:
     {
         if (SecurityNode->objectName().isEmpty())
             SecurityNode->setObjectName(QString::fromUtf8("SecurityNode"));
-        SecurityNode->resize(300, 50);
+        SecurityNode->resize(600, 50);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(SecurityNode->sizePolicy().hasHeightForWidth());
         SecurityNode->setSizePolicy(sizePolicy);
-        SecurityNode->setMinimumSize(QSize(300, 50));
-        SecurityNode->setMaximumSize(QSize(300, 50));
+        SecurityNode->setMinimumSize(QSize(600, 50));
+        SecurityNode->setMaximumSize(QSize(600, 50));
         horizontalLayout = new QHBoxLayout(SecurityNode);
         horizontalLayout->setSpacing(40);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -56,6 +56,7 @@ public:
         delete_2->setObjectName(QString::fromUtf8("delete_2"));
         delete_2->setMinimumSize(QSize(40, 40));
         delete_2->setMaximumSize(QSize(40, 40));
+        delete_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/img/Images/delete.png"), QSize(), QIcon::Normal, QIcon::On);
         delete_2->setIcon(icon);

@@ -22,7 +22,7 @@ StackedWidget::StackedWidget(QWidget *parent) :
         sm = new SecurityMenu();
         this->insertWidget(0, sm);
         connect(sm, SIGNAL(securityToTransaction(QString)), this, SLOT(securityToTransaction(QString)));
-
+        connect(sm, SIGNAL(goToMerged()), this, SLOT(goToMerged()));
         this->setWindowState(Qt::WindowMaximized);
         this->setWindowTitle("Gain and Loss Calculator");
     }    
@@ -70,7 +70,29 @@ void StackedWidget::goToMenu(){
     this->insertWidget(0, sm);
     this->setCurrentWidget(sm);
     connect(sm, SIGNAL(securityToTransaction(QString)), this, SLOT(securityToTransaction(QString)));
+    connect(sm, SIGNAL(goToMerged()), this, SLOT(goToMerged()));
 
     this->removeWidget(ts);
     ts->deleteLater();
+}
+
+void StackedWidget::goToMerged(){
+    ms = new MergedScreen();
+    this->insertWidget(3, ms);
+    this->setCurrentWidget(ms);
+    connect(ms, SIGNAL(mergedToSecurity()), this, SLOT(mergedToSecurity()));
+
+    this->removeWidget(sm);
+    sm->deleteLater();
+}
+
+void StackedWidget::mergedToSecurity(){
+    sm = new SecurityMenu();
+    this->insertWidget(0, sm);
+    this->setCurrentWidget(sm);
+    connect(sm, SIGNAL(securityToTransaction(QString)), this, SLOT(securityToTransaction(QString)));
+    connect(sm, SIGNAL(goToMerged()), this, SLOT(goToMerged()));
+
+    this->removeWidget(ms);
+    ms->deleteLater();
 }

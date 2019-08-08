@@ -10,7 +10,7 @@ SecurityNode::SecurityNode(QWidget *parent, QString text) :
     QFont font = QFont("Helvetica", 14);
 
     ui->pushButton->setFont(font);
-    ui->pushButton->setStyleSheet("QPushButton{ background-color: rgb(10, 209, 0); border-radius: 10px}"
+    ui->pushButton->setStyleSheet("QPushButton{background-color: rgb(128, 162, 255);}"
                                   "QPushButton:hover {border: 5px solid black};");
 }
 

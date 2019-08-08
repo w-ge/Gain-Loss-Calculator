@@ -4,7 +4,8 @@
 #include "./TransactionNode/transactionnode.h"
 #include "./TransactionScreen/transactionscreen.h"
 #include "./EditScreen/editscreen.h"
-#include "securitymenu.h"
+#include "./SecurityMenu/securitymenu.h"
+#include "./MergedScreen/mergedscreen.h"
 #include <QStackedWidget>
 #include <QFontDatabase>
 
@@ -25,6 +26,7 @@ private:
     TransactionScreen * ts;
     EditScreen * es;
     SecurityMenu * sm;
+    MergedScreen * ms;
 
     QSqlDatabase db;
 
@@ -33,6 +35,8 @@ private slots:
     void goToEdit(QString);
     void securityToTransaction(QString);
     void goToMenu();
+    void goToMerged();
+    void mergedToSecurity();
 };
 
 #endif // STACKEDWIDGET_H

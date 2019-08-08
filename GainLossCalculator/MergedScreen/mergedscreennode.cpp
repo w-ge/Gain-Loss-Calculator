@@ -1,55 +1,23 @@
-#include "transactionscreen.h"
-#include "ui_transactionscreen.h"
+#include "mergedscreennode.h"
+#include "ui_mergedscreennode.h"
 
-TransactionScreen::TransactionScreen(QWidget *parent, QString text) :
+MergedScreenNode::MergedScreenNode(QWidget *parent, QString name) :
     QWidget(parent),
-    ui(new Ui::TransactionScreen)
+    ui(new Ui::MergedScreenNode)
 {
     ui->setupUi(this);
 
-    numOfArgs = 10;
-
-    QFont font = QFont("Helvetica", 14);
-
-    tableName = text;
-
-    ui->date->setFont(font);
-    ui->buy->setFont(font);
-    ui->sell->setFont(font);
-    ui->description->setFont(font);
-    ui->price->setFont(font);
-    ui->cost->setFont(font);
-    ui->proceeds->setFont(font);
-    ui->comissions->setFont(font);
-    ui->bookValue->setFont(font);
-    ui->avgCB->setFont(font);
-    ui->gainLoss->setFont(font);
-
-
-
-
-    this->setStyleSheet("QLabel {color: white};"
-                        "QScrollBar:vertical {background: white;}"
-                        "QScrollBar:handle:vertical {background: grey;}");
-
     db = QSqlDatabase::database("securities");
+    tableName = name;
     build();
-
-
 }
 
-TransactionScreen::~TransactionScreen()
+MergedScreenNode::~MergedScreenNode()
 {
     delete ui;
 }
 
-void TransactionScreen::on_edit_clicked()
-{
-    emit goToEdit(tableName);
-}
-
-
-void TransactionScreen::build(){
+void MergedScreenNode::build(){
     QSqlQuery query(db);
     double totalCost = 0;
     double totalShares = 0;
@@ -60,6 +28,15 @@ void TransactionScreen::build(){
     query.exec();
 
     int i = 1;
+
+
+    for(int i = 0; i < 11; i++){
+        QLabel * blank = new QLabel();
+        blank->setText("");
+        blank->setAlignment(Qt::AlignHCenter);
+        ui->transactions->addWidget(blank, 0, i);
+    }
+
     while(query.next()){
         QLabel * date = new QLabel();
         date->setAlignment(Qt::AlignHCenter);
@@ -74,10 +51,9 @@ void TransactionScreen::build(){
         cost->setText(QString::number(query.value(6).toDouble(),'f',2));
         cost->setAlignment(Qt::AlignHCenter);
 
-
         if(query.value(4).toBool()){
-                ui->transactions->addWidget(num, i, 2 );
-                ui->transactions->addWidget(cost, i, 5);
+            ui->transactions->addWidget(num, i, 2 );
+            ui->transactions->addWidget(cost, i, 5);
         }
         else {
             ui->transactions->addWidget(num, i, 3 );
@@ -138,9 +114,4 @@ void TransactionScreen::build(){
     }
     ui->total->setText("Total: $" + QString::number(totalGain, 'f', 2));
     ui->transactions->setRowStretch(i + 1, 1);
-}
-
-void TransactionScreen::on_back_clicked()
-{
-    emit goToMenu();
 }

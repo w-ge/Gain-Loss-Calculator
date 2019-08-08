@@ -7,6 +7,7 @@
 #include <QInputDialog>
 #include <QDebug>
 #include "securitynode.h"
+#include "addsecuritydialog.h"
 
 namespace Ui {
 class SecurityMenu;
@@ -24,6 +25,7 @@ public:
     void refresh();
 signals:
     void securityToTransaction(QString);
+    void goToMerged();
 
 private:
     Ui::SecurityMenu *ui;
@@ -33,6 +35,7 @@ private slots:
     void linkTransaction(QString);
     void on_add_clicked();
     void deleteSecurityNode(QString);
+    void on_merge_clicked();
 };
 
 #endif // SECURITYMENU_H

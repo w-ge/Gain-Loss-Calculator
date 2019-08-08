@@ -60,8 +60,6 @@ void EditScreen::on_save_clicked()
     QSqlQuery query(db);
     query.exec(tr("DELETE FROM %1;").arg(tableName));
 
-    qDebug() << tableName;
-
     for(std::list<TransactionNode *>::iterator it = nodes.begin(); it != nodes.end(); it++){
         (*it)->update();
         query.prepare(tr("INSERT INTO %1 (Day, Month, Year, Buy, Number, Cost, Commission) VALUES "

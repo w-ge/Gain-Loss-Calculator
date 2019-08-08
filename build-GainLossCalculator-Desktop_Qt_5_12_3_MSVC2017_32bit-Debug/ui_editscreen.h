@@ -26,7 +26,6 @@ class Ui_EditScreen
 public:
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout;
-    QLabel *label;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_2;
@@ -41,6 +40,7 @@ public:
     QLabel *Commission;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *transactions;
+    QLabel *label;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *addTransaction;
     QPushButton *revert;
@@ -56,20 +56,12 @@ public:
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        label = new QLabel(EditScreen);
-        label->setObjectName(QString::fromUtf8("label"));
-        QFont font;
-        font.setPointSize(26);
-        label->setFont(font);
-
-        verticalLayout->addWidget(label);
-
         scrollArea = new QScrollArea(EditScreen);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 806, 447));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 806, 442));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         widget = new QWidget(scrollAreaWidgetContents);
@@ -92,7 +84,7 @@ public:
         Desc->setSizePolicy(sizePolicy);
         Desc->setMinimumSize(QSize(145, 0));
         Desc->setMaximumSize(QSize(145, 16777215));
-        Desc->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        Desc->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         Desc->setAlignment(Qt::AlignCenter);
@@ -103,8 +95,8 @@ public:
         Date->setObjectName(QString::fromUtf8("Date"));
         sizePolicy.setHeightForWidth(Date->sizePolicy().hasHeightForWidth());
         Date->setSizePolicy(sizePolicy);
-        Date->setMinimumSize(QSize(85, 0));
-        Date->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        Date->setMinimumSize(QSize(90, 0));
+        Date->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         Date->setAlignment(Qt::AlignCenter);
@@ -119,7 +111,7 @@ public:
         sizePolicy1.setHeightForWidth(Buy->sizePolicy().hasHeightForWidth());
         Buy->setSizePolicy(sizePolicy1);
         Buy->setMinimumSize(QSize(65, 0));
-        Buy->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        Buy->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         Buy->setAlignment(Qt::AlignCenter);
@@ -131,7 +123,7 @@ public:
         sizePolicy1.setHeightForWidth(Sell->sizePolicy().hasHeightForWidth());
         Sell->setSizePolicy(sizePolicy1);
         Sell->setMinimumSize(QSize(65, 0));
-        Sell->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        Sell->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         Sell->setAlignment(Qt::AlignCenter);
@@ -143,7 +135,7 @@ public:
         sizePolicy1.setHeightForWidth(CostProceeds->sizePolicy().hasHeightForWidth());
         CostProceeds->setSizePolicy(sizePolicy1);
         CostProceeds->setMinimumSize(QSize(65, 0));
-        CostProceeds->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        CostProceeds->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         CostProceeds->setAlignment(Qt::AlignCenter);
@@ -155,7 +147,7 @@ public:
         sizePolicy1.setHeightForWidth(Commission->sizePolicy().hasHeightForWidth());
         Commission->setSizePolicy(sizePolicy1);
         Commission->setMinimumSize(QSize(65, 0));
-        Commission->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        Commission->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         Commission->setAlignment(Qt::AlignCenter);
@@ -173,7 +165,7 @@ public:
         verticalLayout_2->addWidget(widget);
 
         transactions = new QVBoxLayout();
-        transactions->setSpacing(0);
+        transactions->setSpacing(6);
         transactions->setObjectName(QString::fromUtf8("transactions"));
 
         verticalLayout_2->addLayout(transactions);
@@ -182,35 +174,54 @@ public:
 
         verticalLayout->addWidget(scrollArea);
 
+        label = new QLabel(EditScreen);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setPointSize(26);
+        label->setFont(font);
+        label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        verticalLayout->addWidget(label);
+
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         addTransaction = new QPushButton(EditScreen);
         addTransaction->setObjectName(QString::fromUtf8("addTransaction"));
-        addTransaction->setMinimumSize(QSize(0, 25));
+        addTransaction->setMinimumSize(QSize(0, 30));
         QFont font1;
+        font1.setFamily(QString::fromUtf8("Microsoft Sans Serif"));
         font1.setPointSize(10);
         addTransaction->setFont(font1);
+        addTransaction->setStyleSheet(QString::fromUtf8("background-color: rgb(208, 208, 208);\n"
+""));
 
         horizontalLayout_5->addWidget(addTransaction);
 
         revert = new QPushButton(EditScreen);
         revert->setObjectName(QString::fromUtf8("revert"));
-        revert->setMinimumSize(QSize(0, 25));
+        revert->setMinimumSize(QSize(0, 30));
         revert->setFont(font1);
+        revert->setStyleSheet(QString::fromUtf8("background-color: rgb(208, 208, 208);\n"
+""));
 
         horizontalLayout_5->addWidget(revert);
 
         save = new QPushButton(EditScreen);
         save->setObjectName(QString::fromUtf8("save"));
-        save->setMinimumSize(QSize(0, 25));
+        save->setMinimumSize(QSize(0, 30));
         save->setFont(font1);
+        save->setStyleSheet(QString::fromUtf8("background-color: rgb(208, 208, 208);\n"
+""));
 
         horizontalLayout_5->addWidget(save);
 
         cancel = new QPushButton(EditScreen);
         cancel->setObjectName(QString::fromUtf8("cancel"));
-        cancel->setMinimumSize(QSize(0, 25));
+        cancel->setMinimumSize(QSize(0, 30));
         cancel->setFont(font1);
+        cancel->setStyleSheet(QString::fromUtf8("background-color: rgb(208, 208, 208);\n"
+""));
 
         horizontalLayout_5->addWidget(cancel);
 
@@ -229,13 +240,13 @@ public:
     void retranslateUi(QWidget *EditScreen)
     {
         EditScreen->setWindowTitle(QApplication::translate("EditScreen", "Form", nullptr));
-        label->setText(QApplication::translate("EditScreen", "Edit Mode:", nullptr));
         Desc->setText(QApplication::translate("EditScreen", "Description", nullptr));
         Date->setText(QApplication::translate("EditScreen", "Date", nullptr));
         Buy->setText(QApplication::translate("EditScreen", "Buy", nullptr));
         Sell->setText(QApplication::translate("EditScreen", "Sell", nullptr));
         CostProceeds->setText(QApplication::translate("EditScreen", "Cost/Proceeds", nullptr));
         Commission->setText(QApplication::translate("EditScreen", "Commission", nullptr));
+        label->setText(QApplication::translate("EditScreen", "Edit Mode", nullptr));
         addTransaction->setText(QApplication::translate("EditScreen", "Add New Transaction", nullptr));
         revert->setText(QApplication::translate("EditScreen", "Revert Changes", nullptr));
         save->setText(QApplication::translate("EditScreen", "Save", nullptr));

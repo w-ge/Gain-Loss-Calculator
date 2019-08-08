@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
+    <width>600</width>
     <height>50</height>
    </rect>
   </property>
@@ -18,13 +18,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>300</width>
+    <width>600</width>
     <height>50</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>300</width>
+    <width>600</width>
     <height>50</height>
    </size>
   </property>
@@ -76,6 +76,9 @@
        <width>40</width>
        <height>40</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 107, 109);</string>
      </property>
      <property name="text">
       <string/>

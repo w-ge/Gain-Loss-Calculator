@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QScrollArea" name="scrollArea">
@@ -25,14 +30,14 @@
         <x>0</x>
         <y>0</y>
         <width>808</width>
-        <height>451</height>
+        <height>444</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <layout class="QGridLayout" name="transactions">
          <property name="verticalSpacing">
-          <number>0</number>
+          <number>10</number>
          </property>
          <item row="0" column="6">
           <widget class="QLabel" name="proceeds">
@@ -43,7 +48,7 @@
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -64,7 +69,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -85,7 +90,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -106,7 +111,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -127,7 +132,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -148,7 +153,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -169,7 +174,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -190,7 +195,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -211,7 +216,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -232,7 +237,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -253,7 +258,7 @@ border: 1px solid white;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(13, 206, 0);
+            <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
 border: 1px solid white;</string>
            </property>
@@ -290,6 +295,22 @@ border: 1px solid white;</string>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="edit">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Microsoft Sans Serif</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(208, 208, 208);
+</string>
+       </property>
        <property name="text">
         <string>Edit</string>
        </property>
@@ -297,6 +318,22 @@ border: 1px solid white;</string>
      </item>
      <item>
       <widget class="QPushButton" name="back">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Microsoft Sans Serif</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(208, 208, 208);
+</string>
+       </property>
        <property name="text">
         <string>Back</string>
        </property>

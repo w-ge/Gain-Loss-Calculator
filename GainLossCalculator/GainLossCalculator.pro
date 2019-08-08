@@ -26,6 +26,9 @@ CONFIG += c++11
 
 SOURCES += \
         EditScreen/editscreen.cpp \
+    MergedScreen/mergedscreen.cpp \
+    MergedScreen/mergedscreennode.cpp \
+    SecurityMenu/addsecuritydialog.cpp \
     SecurityMenu/securitymenu.cpp \
     SecurityMenu/securitynode.cpp \
         TransactionNode/transactionnode.cpp \
@@ -35,6 +38,9 @@ SOURCES += \
 
 HEADERS += \
         EditScreen/editscreen.h \
+    MergedScreen/mergedscreen.h \
+    MergedScreen/mergedscreennode.h \
+    SecurityMenu/addsecuritydialog.h \
     SecurityMenu/securitymenu.h \
     SecurityMenu/securitynode.h \
         TransactionNode/transactionnode.h \
@@ -44,6 +50,9 @@ HEADERS += \
 
 FORMS += \
         EditScreen/editscreen.ui \
+    MergedScreen/mergedscreen.ui \
+    MergedScreen/mergedscreennode.ui \
+    SecurityMenu/addsecuritydialog.ui \
     SecurityMenu/securitymenu.ui \
     SecurityMenu/securitynode.ui \
         TransactionNode/transactionnode.ui \

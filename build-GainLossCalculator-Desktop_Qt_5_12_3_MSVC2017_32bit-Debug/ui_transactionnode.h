@@ -43,7 +43,7 @@ public:
         if (TransactionNode->objectName().isEmpty())
             TransactionNode->setObjectName(QString::fromUtf8("TransactionNode"));
         TransactionNode->resize(963, 30);
-        TransactionNode->setStyleSheet(QString::fromUtf8(""));
+        TransactionNode->setStyleSheet(QString::fromUtf8("QLabel {color: white};"));
         horizontalLayout = new QHBoxLayout(TransactionNode);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -57,10 +57,8 @@ public:
         description->setSizePolicy(sizePolicy);
         description->setMinimumSize(QSize(145, 0));
         description->setMaximumSize(QSize(145, 16777215));
-        description->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        description->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
         description->setReadOnly(true);
 
@@ -73,7 +71,7 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
         widget->setSizePolicy(sizePolicy1);
-        widget->setMinimumSize(QSize(85, 0));
+        widget->setMinimumSize(QSize(90, 0));
         horizontalLayout_2 = new QHBoxLayout(widget);
         horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
@@ -83,16 +81,16 @@ public:
         sizePolicy.setHeightForWidth(day->sizePolicy().hasHeightForWidth());
         day->setSizePolicy(sizePolicy);
         day->setMaximumSize(QSize(20, 16777215));
-        day->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        day->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
 
         horizontalLayout_2->addWidget(day);
 
         label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setMinimumSize(QSize(10, 0));
+        label->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label);
 
@@ -101,16 +99,16 @@ public:
         sizePolicy.setHeightForWidth(month->sizePolicy().hasHeightForWidth());
         month->setSizePolicy(sizePolicy);
         month->setMaximumSize(QSize(20, 16777215));
-        month->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        month->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
 
         horizontalLayout_2->addWidget(month);
 
         label_2 = new QLabel(widget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMinimumSize(QSize(10, 0));
+        label_2->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_2);
 
@@ -119,10 +117,8 @@ public:
         sizePolicy.setHeightForWidth(year->sizePolicy().hasHeightForWidth());
         year->setSizePolicy(sizePolicy);
         year->setMaximumSize(QSize(30, 16777215));
-        year->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        year->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
 
         horizontalLayout_2->addWidget(year);
@@ -138,10 +134,8 @@ public:
         sizePolicy2.setHeightForWidth(buy->sizePolicy().hasHeightForWidth());
         buy->setSizePolicy(sizePolicy2);
         buy->setMinimumSize(QSize(65, 0));
-        buy->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        buy->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
 
         horizontalLayout->addWidget(buy);
@@ -151,10 +145,8 @@ public:
         sizePolicy2.setHeightForWidth(sell->sizePolicy().hasHeightForWidth());
         sell->setSizePolicy(sizePolicy2);
         sell->setMinimumSize(QSize(65, 0));
-        sell->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        sell->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
 
         horizontalLayout->addWidget(sell);
@@ -164,10 +156,8 @@ public:
         sizePolicy2.setHeightForWidth(cost->sizePolicy().hasHeightForWidth());
         cost->setSizePolicy(sizePolicy2);
         cost->setMinimumSize(QSize(65, 0));
-        cost->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        cost->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
 
         horizontalLayout->addWidget(cost);
@@ -177,10 +167,8 @@ public:
         sizePolicy2.setHeightForWidth(commissions->sizePolicy().hasHeightForWidth());
         commissions->setSizePolicy(sizePolicy2);
         commissions->setMinimumSize(QSize(65, 0));
-        commissions->setStyleSheet(QString::fromUtf8("border-width: 1px; \n"
-"border-style: solid;\n"
-" border-color: white white black white;\n"
-"background-color: rgb(255, 255, 255);\n"
+        commissions->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
 ""));
 
         horizontalLayout->addWidget(commissions);
@@ -192,7 +180,7 @@ public:
         delete_2->setMinimumSize(QSize(30, 30));
         delete_2->setMaximumSize(QSize(40, 30));
         QPalette palette;
-        QBrush brush(QColor(255, 255, 255, 255));
+        QBrush brush(QColor(214, 214, 214, 255));
         brush.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Button, brush);
         palette.setBrush(QPalette::Active, QPalette::Base, brush);
@@ -204,7 +192,9 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::Base, brush);
         palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
         delete_2->setPalette(palette);
-        delete_2->setStyleSheet(QString::fromUtf8(""));
+        delete_2->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
+"background-color: rgb(214, 214, 214);\n"
+""));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/img/Images/delete.png"), QSize(), QIcon::Normal, QIcon::On);
         delete_2->setIcon(icon);

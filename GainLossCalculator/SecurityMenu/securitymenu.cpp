@@ -38,28 +38,9 @@ void SecurityMenu::linkTransaction(QString text){
 void SecurityMenu::on_add_clicked()
 {
     QSqlQuery query(db);
-
-    QString text = QInputDialog::getText(this,"Add Security","Enter Security Name");
-    if(!text.isEmpty()){
-        query.exec(tr("Select COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = '%1'").arg(text));
-        query.next();
-        if(query.value(0).toInt() > 0){
-            qDebug() << "Table Already Exists";
-        }
-        else{
-            query.exec(tr("CREATE TABLE [%1] ("
-                          "[Id] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"
-                          ", [Day] bigint DEFAULT (23) NOT NULL"
-                          ", [Month] bigint DEFAULT (06) NOT NULL"
-                          ", [Year] bigint DEFAULT (2000) NOT NULL"
-                          ", [Buy] bit DEFAULT (1) NOT NULL"
-                          ", [Number] bigint DEFAULT (1) NOT NULL"
-                          ", [Cost] decimal DEFAULT (0) NOT NULL"
-                          ", [Commission] decimal DEFAULT (0) NOT NULL"
-                          ");").arg(text));
-            refresh();
-        }
-    }
+    AddSecurityDialog * sd = new AddSecurityDialog();
+    sd->exec();
+    refresh();
 }
 
 void SecurityMenu::refresh(){
@@ -76,4 +57,9 @@ void SecurityMenu::deleteSecurityNode(QString text){
 
     query.exec(tr("DROP TABLE %1").arg(text));
     refresh();
+}
+
+void SecurityMenu::on_merge_clicked()
+{
+    emit goToMerged();
 }

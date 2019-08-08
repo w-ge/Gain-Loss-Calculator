@@ -50,6 +50,7 @@ public:
         if (TransactionScreen->objectName().isEmpty())
             TransactionScreen->setObjectName(QString::fromUtf8("TransactionScreen"));
         TransactionScreen->resize(828, 550);
+        TransactionScreen->setStyleSheet(QString::fromUtf8(""));
         verticalLayout = new QVBoxLayout(TransactionScreen);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         scrollArea = new QScrollArea(TransactionScreen);
@@ -57,16 +58,16 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 808, 451));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 808, 444));
         gridLayout = new QGridLayout(scrollAreaWidgetContents);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         transactions = new QGridLayout();
         transactions->setObjectName(QString::fromUtf8("transactions"));
-        transactions->setVerticalSpacing(0);
+        transactions->setVerticalSpacing(10);
         proceeds = new QLabel(scrollAreaWidgetContents);
         proceeds->setObjectName(QString::fromUtf8("proceeds"));
         proceeds->setMinimumSize(QSize(0, 30));
-        proceeds->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        proceeds->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         proceeds->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -76,7 +77,7 @@ public:
         sell = new QLabel(scrollAreaWidgetContents);
         sell->setObjectName(QString::fromUtf8("sell"));
         sell->setMinimumSize(QSize(0, 30));
-        sell->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        sell->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         sell->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -86,7 +87,7 @@ public:
         description = new QLabel(scrollAreaWidgetContents);
         description->setObjectName(QString::fromUtf8("description"));
         description->setMinimumSize(QSize(0, 30));
-        description->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        description->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         description->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -96,7 +97,7 @@ public:
         buy = new QLabel(scrollAreaWidgetContents);
         buy->setObjectName(QString::fromUtf8("buy"));
         buy->setMinimumSize(QSize(0, 30));
-        buy->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        buy->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         buy->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -106,7 +107,7 @@ public:
         bookValue = new QLabel(scrollAreaWidgetContents);
         bookValue->setObjectName(QString::fromUtf8("bookValue"));
         bookValue->setMinimumSize(QSize(0, 30));
-        bookValue->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        bookValue->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         bookValue->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -116,7 +117,7 @@ public:
         price = new QLabel(scrollAreaWidgetContents);
         price->setObjectName(QString::fromUtf8("price"));
         price->setMinimumSize(QSize(0, 30));
-        price->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        price->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         price->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -126,7 +127,7 @@ public:
         comissions = new QLabel(scrollAreaWidgetContents);
         comissions->setObjectName(QString::fromUtf8("comissions"));
         comissions->setMinimumSize(QSize(0, 30));
-        comissions->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        comissions->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         comissions->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -136,7 +137,7 @@ public:
         avgCB = new QLabel(scrollAreaWidgetContents);
         avgCB->setObjectName(QString::fromUtf8("avgCB"));
         avgCB->setMinimumSize(QSize(0, 30));
-        avgCB->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        avgCB->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         avgCB->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -146,7 +147,7 @@ public:
         date = new QLabel(scrollAreaWidgetContents);
         date->setObjectName(QString::fromUtf8("date"));
         date->setMinimumSize(QSize(0, 30));
-        date->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        date->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         date->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -156,7 +157,7 @@ public:
         cost = new QLabel(scrollAreaWidgetContents);
         cost->setObjectName(QString::fromUtf8("cost"));
         cost->setMinimumSize(QSize(0, 30));
-        cost->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        cost->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         cost->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -166,7 +167,7 @@ public:
         gainLoss = new QLabel(scrollAreaWidgetContents);
         gainLoss->setObjectName(QString::fromUtf8("gainLoss"));
         gainLoss->setMinimumSize(QSize(0, 30));
-        gainLoss->setStyleSheet(QString::fromUtf8("background-color: rgb(13, 206, 0);\n"
+        gainLoss->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid white;"));
         gainLoss->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -193,11 +194,22 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         edit = new QPushButton(TransactionScreen);
         edit->setObjectName(QString::fromUtf8("edit"));
+        edit->setMinimumSize(QSize(0, 30));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Microsoft Sans Serif"));
+        font1.setPointSize(10);
+        edit->setFont(font1);
+        edit->setStyleSheet(QString::fromUtf8("background-color: rgb(208, 208, 208);\n"
+""));
 
         horizontalLayout->addWidget(edit);
 
         back = new QPushButton(TransactionScreen);
         back->setObjectName(QString::fromUtf8("back"));
+        back->setMinimumSize(QSize(0, 30));
+        back->setFont(font1);
+        back->setStyleSheet(QString::fromUtf8("background-color: rgb(208, 208, 208);\n"
+""));
 
         horizontalLayout->addWidget(back);
 

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>StackedWidget</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(74, 74, 74);</string>
+  </property>
  </widget>
  <resources/>
  <connections/>

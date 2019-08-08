@@ -24,6 +24,7 @@ public:
         if (StackedWidget->objectName().isEmpty())
             StackedWidget->setObjectName(QString::fromUtf8("StackedWidget"));
         StackedWidget->resize(828, 550);
+        StackedWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(74, 74, 74);"));
 
         retranslateUi(StackedWidget);
 
