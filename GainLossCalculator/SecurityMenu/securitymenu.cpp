@@ -55,7 +55,7 @@ void SecurityMenu::refresh(){
 void SecurityMenu::deleteSecurityNode(QString text){
     QSqlQuery query(db);
 
-    query.exec(tr("DROP TABLE %1").arg(text));
+    query.exec(tr("DROP TABLE '%1'").arg(text));
     refresh();
 }
 

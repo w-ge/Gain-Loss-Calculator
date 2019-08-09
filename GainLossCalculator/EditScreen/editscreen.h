@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QSqlError>
+#include <QMessageBox>
 #include "../TransactionNode/transactionnode.h"
 
 

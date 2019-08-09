@@ -51,7 +51,7 @@
      </property>
      <property name="styleSheet">
       <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
      </property>
      <property name="text">
@@ -108,7 +108,7 @@ background-color: rgb(214, 214, 214);
         </property>
         <property name="styleSheet">
          <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
         </property>
        </widget>
@@ -145,7 +145,7 @@ background-color: rgb(214, 214, 214);
         </property>
         <property name="styleSheet">
          <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
         </property>
        </widget>
@@ -182,7 +182,7 @@ background-color: rgb(214, 214, 214);
         </property>
         <property name="styleSheet">
          <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
         </property>
        </widget>
@@ -206,7 +206,7 @@ background-color: rgb(214, 214, 214);
      </property>
      <property name="styleSheet">
       <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
      </property>
     </widget>
@@ -227,7 +227,7 @@ background-color: rgb(214, 214, 214);
      </property>
      <property name="styleSheet">
       <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
      </property>
     </widget>
@@ -248,7 +248,7 @@ background-color: rgb(214, 214, 214);
      </property>
      <property name="styleSheet">
       <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
      </property>
     </widget>
@@ -269,7 +269,7 @@ background-color: rgb(214, 214, 214);
      </property>
      <property name="styleSheet">
       <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
      </property>
     </widget>
@@ -300,27 +300,27 @@ background-color: rgb(214, 214, 214);
         <colorrole role="Button">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
         <colorrole role="Base">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
         <colorrole role="Window">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
@@ -329,27 +329,27 @@ background-color: rgb(214, 214, 214);
         <colorrole role="Button">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
         <colorrole role="Base">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
         <colorrole role="Window">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
@@ -358,27 +358,27 @@ background-color: rgb(214, 214, 214);
         <colorrole role="Button">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
         <colorrole role="Base">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
         <colorrole role="Window">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>214</red>
-           <green>214</green>
-           <blue>214</blue>
+           <red>218</red>
+           <green>218</green>
+           <blue>218</blue>
           </color>
          </brush>
         </colorrole>
@@ -387,7 +387,7 @@ background-color: rgb(214, 214, 214);
      </property>
      <property name="styleSheet">
       <string notr="true">border: 1px solid rgb(214, 214, 214);
-background-color: rgb(214, 214, 214);
+background-color: rgb(218, 218, 218);
 </string>
      </property>
      <property name="text">

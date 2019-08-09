@@ -73,6 +73,10 @@ void EditScreen::on_save_clicked()
         query.bindValue(":commission", (*it)->commission);
         query.exec();
     }
+
+    QMessageBox msgBox;
+    msgBox.setText("Changes saved to database");
+    msgBox.exec();
 }
 
 void EditScreen::on_addTransaction_clicked()

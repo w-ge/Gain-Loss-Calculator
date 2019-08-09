@@ -26,5 +26,10 @@ void SecurityNode::on_pushButton_clicked()
 
 void SecurityNode::on_delete_2_clicked()
 {
-    emit deleteSecurityNode(ui->pushButton->text());
+    QMessageBox msgBox;
+    msgBox.setText("Are you sure you want to delete " + ui->pushButton->text());
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    if(msgBox.exec() == QMessageBox::Yes){
+        emit deleteSecurityNode(ui->pushButton->text());
+    }
 }

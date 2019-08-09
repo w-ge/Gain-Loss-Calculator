@@ -31,7 +31,7 @@ public:
     {
         if (AddSecurityDialog->objectName().isEmpty())
             AddSecurityDialog->setObjectName(QString::fromUtf8("AddSecurityDialog"));
-        AddSecurityDialog->resize(330, 170);
+        AddSecurityDialog->resize(330, 114);
         AddSecurityDialog->setMaximumSize(QSize(330, 170));
         verticalLayout = new QVBoxLayout(AddSecurityDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));

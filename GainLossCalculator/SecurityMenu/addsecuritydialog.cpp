@@ -7,6 +7,7 @@ AddSecurityDialog::AddSecurityDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     db = QSqlDatabase::database("securities");
+
 }
 
 AddSecurityDialog::~AddSecurityDialog()
@@ -21,7 +22,9 @@ void AddSecurityDialog::on_buttonBox_accepted()
         query.exec(tr("Select COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = '%1'").arg(ui->tableName->text()));
         query.next();
         if(query.value(0).toInt() > 0){
-
+            QMessageBox msgBox;
+            msgBox.setText(ui->tableName->text() + " already exists");
+            msgBox.exec();
         }
         else{
             query.exec(tr("CREATE TABLE [%1] ("
@@ -35,5 +38,10 @@ void AddSecurityDialog::on_buttonBox_accepted()
                           ", [Commission] decimal DEFAULT (0) NOT NULL"
                           ");").arg(ui->tableName->text()));
         }
+    }
+    else{
+        QMessageBox msgBox;
+        msgBox.setText("Security name cannot be blank");
+        msgBox.exec();
     }
 }

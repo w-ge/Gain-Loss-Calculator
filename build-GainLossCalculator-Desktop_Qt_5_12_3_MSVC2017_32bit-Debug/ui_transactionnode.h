@@ -58,7 +58,7 @@ public:
         description->setMinimumSize(QSize(145, 0));
         description->setMaximumSize(QSize(145, 16777215));
         description->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
         description->setReadOnly(true);
 
@@ -82,7 +82,7 @@ public:
         day->setSizePolicy(sizePolicy);
         day->setMaximumSize(QSize(20, 16777215));
         day->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
 
         horizontalLayout_2->addWidget(day);
@@ -100,7 +100,7 @@ public:
         month->setSizePolicy(sizePolicy);
         month->setMaximumSize(QSize(20, 16777215));
         month->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
 
         horizontalLayout_2->addWidget(month);
@@ -118,7 +118,7 @@ public:
         year->setSizePolicy(sizePolicy);
         year->setMaximumSize(QSize(30, 16777215));
         year->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
 
         horizontalLayout_2->addWidget(year);
@@ -135,7 +135,7 @@ public:
         buy->setSizePolicy(sizePolicy2);
         buy->setMinimumSize(QSize(65, 0));
         buy->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
 
         horizontalLayout->addWidget(buy);
@@ -146,7 +146,7 @@ public:
         sell->setSizePolicy(sizePolicy2);
         sell->setMinimumSize(QSize(65, 0));
         sell->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
 
         horizontalLayout->addWidget(sell);
@@ -157,7 +157,7 @@ public:
         cost->setSizePolicy(sizePolicy2);
         cost->setMinimumSize(QSize(65, 0));
         cost->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
 
         horizontalLayout->addWidget(cost);
@@ -168,7 +168,7 @@ public:
         commissions->setSizePolicy(sizePolicy2);
         commissions->setMinimumSize(QSize(65, 0));
         commissions->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
 
         horizontalLayout->addWidget(commissions);
@@ -180,7 +180,7 @@ public:
         delete_2->setMinimumSize(QSize(30, 30));
         delete_2->setMaximumSize(QSize(40, 30));
         QPalette palette;
-        QBrush brush(QColor(214, 214, 214, 255));
+        QBrush brush(QColor(218, 218, 218, 255));
         brush.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Button, brush);
         palette.setBrush(QPalette::Active, QPalette::Base, brush);
@@ -193,7 +193,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
         delete_2->setPalette(palette);
         delete_2->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(214, 214, 214);\n"
+"background-color: rgb(218, 218, 218);\n"
 ""));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/img/Images/delete.png"), QSize(), QIcon::Normal, QIcon::On);

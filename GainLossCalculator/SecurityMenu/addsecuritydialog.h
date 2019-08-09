@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QMessageBox>
 
 namespace Ui {
 class AddSecurityDialog;
