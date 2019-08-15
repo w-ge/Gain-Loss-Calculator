@@ -23,13 +23,13 @@ public:
     ~EditScreen();
 
     void buildNodes();
+    void save();
 
 signals:
 
     void goToTransaction(QString);
 
 private slots:
-    void on_save_clicked();
 
     void on_addTransaction_clicked();
 

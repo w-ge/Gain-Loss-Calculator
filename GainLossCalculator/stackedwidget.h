@@ -37,6 +37,7 @@ private slots:
     void goToMenu();
     void goToMerged();
     void mergedToSecurity();
+    void goToAllFromTransaction();
 };
 
 #endif // STACKEDWIDGET_H

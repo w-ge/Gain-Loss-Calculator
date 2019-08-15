@@ -50,6 +50,7 @@ void StackedWidget::goToTransaction(QString text){
     this->setCurrentWidget(ts);
     connect(ts, SIGNAL(goToEdit(QString)), this, SLOT(goToEdit(QString)));
     connect(ts, SIGNAL(goToMenu()), this, SLOT(goToMenu()));
+    connect(ts, SIGNAL(goToAllFromTransaction()), this, SLOT(goToAllFromTransaction()));
 
     this->removeWidget(es);
     es->deleteLater();
@@ -61,6 +62,7 @@ void StackedWidget::securityToTransaction(QString text){
     this->setCurrentWidget(ts);
     connect(ts, SIGNAL(goToEdit(QString)), this, SLOT(goToEdit(QString)));
     connect(ts, SIGNAL(goToMenu()), this, SLOT(goToMenu()));
+    connect(ts, SIGNAL(goToAllFromTransaction()), this, SLOT(goToAllFromTransaction()));
 
     this->removeWidget(sm);
     sm->deleteLater();
@@ -95,4 +97,14 @@ void StackedWidget::mergedToSecurity(){
 
     this->removeWidget(ms);
     ms->deleteLater();
+}
+
+void StackedWidget::goToAllFromTransaction(){
+    ms = new MergedScreen();
+    this->insertWidget(3, ms);
+    this->setCurrentWidget(ms);
+    connect(ms, SIGNAL(mergedToSecurity()), this, SLOT(mergedToSecurity()));
+
+    this->removeWidget(ts);
+    ts->deleteLater();
 }

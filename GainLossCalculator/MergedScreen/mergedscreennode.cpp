@@ -23,6 +23,8 @@ void MergedScreenNode::build(){
     double totalShares = 0;
     double avgCostBase = 0;
     double totalGain = 0;
+    int totalBuy = 0;
+    int totalSell = 0;
 
     query.prepare(tr("SELECT * FROM %1;").arg(tableName));
     query.exec();
@@ -52,13 +54,17 @@ void MergedScreenNode::build(){
         cost->setAlignment(Qt::AlignHCenter);
 
         if(query.value(4).toBool()){
-            ui->transactions->addWidget(num, i, 2 );
-            ui->transactions->addWidget(cost, i, 5);
+                ui->transactions->addWidget(num, i, 2 );
+                ui->transactions->addWidget(cost, i, 5);
+                totalBuy += query.value(5).toInt();
         }
         else {
             ui->transactions->addWidget(num, i, 3 );
             ui->transactions->addWidget(cost, i, 6);
+            totalSell += query.value(5).toInt();
         }
+
+
 
         QLabel * desc = new QLabel();
         desc->setText(tableName);
@@ -112,6 +118,8 @@ void MergedScreenNode::build(){
 
         i++;
     }
-    ui->total->setText("Total: $" + QString::number(totalGain, 'f', 2));
+    ui->gainLoss->setText(QString::number(totalGain, 'f', 2));
+    ui->buy->setText(QString::number(totalBuy));
+    ui->sell->setText(QString::number(totalSell));
     ui->transactions->setRowStretch(i + 1, 1);
 }

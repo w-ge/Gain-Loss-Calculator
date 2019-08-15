@@ -12,8 +12,8 @@ EditScreen::EditScreen(QWidget *parent, QString text) :
     tableName = text;
     buildNodes();
 
-    this->setStyleSheet("QScrollBar:vertical {background: white;}"
-                        "QScrollBar:handle:vertical {background: grey;}");
+    this->setStyleSheet("QScrollBar:vertical {background: grey;}"
+                        "QScrollBar:handle:vertical {background: white;}");
 
     QFont font = QFont("Helvetica", 14);
 
@@ -23,6 +23,7 @@ EditScreen::EditScreen(QWidget *parent, QString text) :
     ui->CostProceeds->setFont(font);
     ui->Desc->setFont(font);
     ui->Commission->setFont(font);
+    ui->cancel->setText("Back To " + tableName);
 }
 
 
@@ -55,8 +56,7 @@ void EditScreen::deleteThis(TransactionNode * tn){
     delete tn;
 }
 
-void EditScreen::on_save_clicked()
-{
+void EditScreen::save(){
     QSqlQuery query(db);
     query.exec(tr("DELETE FROM %1;").arg(tableName));
 
@@ -73,10 +73,6 @@ void EditScreen::on_save_clicked()
         query.bindValue(":commission", (*it)->commission);
         query.exec();
     }
-
-    QMessageBox msgBox;
-    msgBox.setText("Changes saved to database");
-    msgBox.exec();
 }
 
 void EditScreen::on_addTransaction_clicked()
@@ -102,5 +98,6 @@ void EditScreen::on_revert_clicked()
 
 void EditScreen::on_cancel_clicked()
 {
+    save();
     emit goToTransaction(tableName);
 }

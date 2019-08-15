@@ -44,7 +44,6 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QPushButton *addTransaction;
     QPushButton *revert;
-    QPushButton *save;
     QPushButton *cancel;
 
     void setupUi(QWidget *EditScreen)
@@ -207,15 +206,6 @@ public:
 
         horizontalLayout_5->addWidget(revert);
 
-        save = new QPushButton(EditScreen);
-        save->setObjectName(QString::fromUtf8("save"));
-        save->setMinimumSize(QSize(0, 30));
-        save->setFont(font1);
-        save->setStyleSheet(QString::fromUtf8("background-color: rgb(208, 208, 208);\n"
-""));
-
-        horizontalLayout_5->addWidget(save);
-
         cancel = new QPushButton(EditScreen);
         cancel->setObjectName(QString::fromUtf8("cancel"));
         cancel->setMinimumSize(QSize(0, 30));
@@ -249,7 +239,6 @@ public:
         label->setText(QApplication::translate("EditScreen", "Edit Mode", nullptr));
         addTransaction->setText(QApplication::translate("EditScreen", "Add New Transaction", nullptr));
         revert->setText(QApplication::translate("EditScreen", "Revert Changes", nullptr));
-        save->setText(QApplication::translate("EditScreen", "Save", nullptr));
         cancel->setText(QApplication::translate("EditScreen", "Back", nullptr));
     } // retranslateUi
 

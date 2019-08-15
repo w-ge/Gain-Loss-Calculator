@@ -214,7 +214,7 @@ public:
         bookValue->setText(QApplication::translate("MergedScreen", "Book Value", nullptr));
         avgCB->setText(QApplication::translate("MergedScreen", "Average Base Cost", nullptr));
         gainLoss->setText(QApplication::translate("MergedScreen", "Gain/Loss", nullptr));
-        back->setText(QApplication::translate("MergedScreen", "Back", nullptr));
+        back->setText(QApplication::translate("MergedScreen", "Back To Main Menu", nullptr));
     } // retranslateUi
 
 };

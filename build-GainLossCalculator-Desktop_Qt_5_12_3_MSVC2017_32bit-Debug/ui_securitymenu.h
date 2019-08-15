@@ -94,7 +94,7 @@ public:
     {
         SecurityMenu->setWindowTitle(QApplication::translate("SecurityMenu", "Form", nullptr));
         add->setText(QApplication::translate("SecurityMenu", "Add Security", nullptr));
-        merge->setText(QApplication::translate("SecurityMenu", "View Merged", nullptr));
+        merge->setText(QApplication::translate("SecurityMenu", "View All", nullptr));
     } // retranslateUi
 
 };

@@ -26,11 +26,14 @@ public:
 signals:
     void goToEdit(QString);
     void goToMenu();
+    void goToAllFromTransaction();
 
 private slots:
     void on_edit_clicked();
 
     void on_back_clicked();
+
+    void on_viewAll_clicked();
 
 private:
     Ui::TransactionScreen *ui;

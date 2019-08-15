@@ -55,6 +55,8 @@ void TransactionScreen::build(){
     double totalShares = 0;
     double avgCostBase = 0;
     double totalGain = 0;
+    int totalBuy = 0;
+    int totalSell = 0;
 
     query.prepare(tr("SELECT * FROM %1;").arg(tableName));
     query.exec();
@@ -78,10 +80,12 @@ void TransactionScreen::build(){
         if(query.value(4).toBool()){
                 ui->transactions->addWidget(num, i, 2 );
                 ui->transactions->addWidget(cost, i, 5);
+                totalBuy += query.value(5).toInt();
         }
         else {
             ui->transactions->addWidget(num, i, 3 );
             ui->transactions->addWidget(cost, i, 6);
+            totalSell += query.value(5).toInt();
         }
 
         QLabel * desc = new QLabel();
@@ -136,11 +140,19 @@ void TransactionScreen::build(){
 
         i++;
     }
-    ui->total->setText("Total: $" + QString::number(totalGain, 'f', 2));
-    ui->transactions->setRowStretch(i + 1, 1);
+
+    ui->gainLoss_2->setText(QString::number(totalGain,'f',2));
+    ui->buy_2->setText(QString::number(totalBuy));
+    ui->sell_2->setText(QString::number(totalSell));
+    ui->layout->setRowStretch(3, 1);
 }
 
 void TransactionScreen::on_back_clicked()
 {
     emit goToMenu();
+}
+
+void TransactionScreen::on_viewAll_clicked()
+{
+    emit goToAllFromTransaction();
 }
