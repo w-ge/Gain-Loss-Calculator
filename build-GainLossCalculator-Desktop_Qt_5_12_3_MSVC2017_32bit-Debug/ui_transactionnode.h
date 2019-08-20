@@ -35,7 +35,6 @@ public:
     QLineEdit *buy;
     QLineEdit *sell;
     QLineEdit *cost;
-    QLineEdit *commissions;
     QPushButton *delete_2;
 
     void setupUi(QWidget *TransactionNode)
@@ -161,17 +160,6 @@ public:
 ""));
 
         horizontalLayout->addWidget(cost);
-
-        commissions = new QLineEdit(TransactionNode);
-        commissions->setObjectName(QString::fromUtf8("commissions"));
-        sizePolicy2.setHeightForWidth(commissions->sizePolicy().hasHeightForWidth());
-        commissions->setSizePolicy(sizePolicy2);
-        commissions->setMinimumSize(QSize(65, 0));
-        commissions->setStyleSheet(QString::fromUtf8("border: 1px solid rgb(214, 214, 214);\n"
-"background-color: rgb(218, 218, 218);\n"
-""));
-
-        horizontalLayout->addWidget(commissions);
 
         delete_2 = new QPushButton(TransactionNode);
         delete_2->setObjectName(QString::fromUtf8("delete_2"));

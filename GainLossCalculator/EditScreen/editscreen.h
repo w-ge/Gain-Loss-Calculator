@@ -25,6 +25,7 @@ public:
     void buildNodes();
     void save();
 
+
 signals:
 
     void goToTransaction(QString);

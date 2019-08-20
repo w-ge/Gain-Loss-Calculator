@@ -17,7 +17,7 @@ class TransactionNode : public QWidget
 
 public:
     explicit TransactionNode(QWidget *parent = nullptr, int d = 0, int m  = 0, int y = 0, bool b = 1, int n = 0,
-                             QString desc = "", double c = 0, double com = 0);
+                             QString desc = "", double c = 0);
     ~TransactionNode();
 
     int day;
@@ -27,7 +27,6 @@ public:
     int number;
     QString description;
     double cost;
-    double commission;
 
     void update();
 

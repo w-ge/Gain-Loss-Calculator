@@ -98,10 +98,6 @@ void TransactionScreen::build(){
         price->setAlignment(Qt::AlignHCenter);
         ui->transactions->addWidget(price, i, 4);
 
-        QLabel * com = new QLabel();
-        com->setText(query.value(8).toString());
-        com->setAlignment(Qt::AlignHCenter);
-        ui->transactions->addWidget(com, i, 7);
 
 
         if(query.value(4).toBool()){
@@ -123,6 +119,11 @@ void TransactionScreen::build(){
         }
         else{
 
+            QLabel * acq = new QLabel();
+            acq->setText(QString::number(num->text().toDouble() *avgCostBase,'f',2));
+            acq->setAlignment(Qt::AlignHCenter);
+            ui->transactions->addWidget(acq, i, 7);
+
             QLabel * gain = new QLabel();
             gain->setText(QString::number(cost->text().toDouble() - (avgCostBase * num->text().toInt()),'f',2));
             gain->setAlignment(Qt::AlignHCenter);
@@ -141,10 +142,35 @@ void TransactionScreen::build(){
         i++;
     }
 
-    ui->gainLoss_2->setText(QString::number(totalGain,'f',2));
-    ui->buy_2->setText(QString::number(totalBuy));
-    ui->sell_2->setText(QString::number(totalSell));
-    ui->layout->setRowStretch(3, 1);
+    for(int j = 0; j < 11; j++){
+        QFrame *line = new QFrame();
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        line->setStyleSheet(QString("background-color: white;"));
+        ui->transactions->addWidget(line, i, j);
+    }
+    i++;
+
+    QLabel * tGain = new QLabel();
+    tGain->setText(QString::number(totalGain,'f',2));
+    tGain->setAlignment(Qt::AlignHCenter);
+    ui->transactions->addWidget(tGain, i, 10);
+
+    QLabel * tBuy = new QLabel();
+    tBuy->setText(QString::number(totalBuy));
+    tBuy->setAlignment(Qt::AlignHCenter);
+    ui->transactions->addWidget(tBuy, i, 2);
+
+    QLabel * tSell = new QLabel();
+    tSell->setText(QString::number(totalSell));
+    tSell->setAlignment(Qt::AlignHCenter);
+    ui->transactions->addWidget(tSell, i, 3);
+
+    QLabel * totalText = new QLabel();
+    totalText->setText("Total:");
+    ui->transactions->addWidget(totalText, i, 0);
+
+    ui->transactions->setRowStretch(i + 1, 1);
 }
 
 void TransactionScreen::on_back_clicked()

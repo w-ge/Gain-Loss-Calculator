@@ -37,7 +37,6 @@ public:
     QLabel *Buy;
     QLabel *Sell;
     QLabel *CostProceeds;
-    QLabel *Commission;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *transactions;
     QLabel *label;
@@ -141,18 +140,6 @@ public:
 
         horizontalLayout->addWidget(CostProceeds);
 
-        Commission = new QLabel(widget);
-        Commission->setObjectName(QString::fromUtf8("Commission"));
-        sizePolicy1.setHeightForWidth(Commission->sizePolicy().hasHeightForWidth());
-        Commission->setSizePolicy(sizePolicy1);
-        Commission->setMinimumSize(QSize(65, 0));
-        Commission->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 107, 109);\n"
-"color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
-        Commission->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout->addWidget(Commission);
-
         horizontalSpacer = new QSpacerItem(45, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
@@ -235,7 +222,6 @@ public:
         Buy->setText(QApplication::translate("EditScreen", "Buy", nullptr));
         Sell->setText(QApplication::translate("EditScreen", "Sell", nullptr));
         CostProceeds->setText(QApplication::translate("EditScreen", "Cost/Proceeds", nullptr));
-        Commission->setText(QApplication::translate("EditScreen", "Commission", nullptr));
         label->setText(QApplication::translate("EditScreen", "Edit Mode", nullptr));
         addTransaction->setText(QApplication::translate("EditScreen", "Add New Transaction", nullptr));
         revert->setText(QApplication::translate("EditScreen", "Revert Changes", nullptr));

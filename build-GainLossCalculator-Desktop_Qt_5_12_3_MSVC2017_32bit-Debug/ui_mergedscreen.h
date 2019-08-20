@@ -62,13 +62,14 @@ public:
         securities = new QGridLayout();
         securities->setObjectName(QString::fromUtf8("securities"));
         horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         description = new QLabel(scrollAreaWidgetContents_3);
         description->setObjectName(QString::fromUtf8("description"));
         description->setMinimumSize(QSize(0, 30));
         description->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         description->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(description);
@@ -78,7 +79,7 @@ public:
         date->setMinimumSize(QSize(0, 30));
         date->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         date->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(date);
@@ -88,7 +89,7 @@ public:
         buy->setMinimumSize(QSize(0, 30));
         buy->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         buy->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(buy);
@@ -98,7 +99,7 @@ public:
         sell->setMinimumSize(QSize(0, 30));
         sell->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         sell->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(sell);
@@ -108,7 +109,7 @@ public:
         price->setMinimumSize(QSize(0, 30));
         price->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         price->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(price);
@@ -118,7 +119,7 @@ public:
         cost->setMinimumSize(QSize(0, 30));
         cost->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         cost->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(cost);
@@ -128,7 +129,7 @@ public:
         proceeds->setMinimumSize(QSize(0, 30));
         proceeds->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         proceeds->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(proceeds);
@@ -138,7 +139,7 @@ public:
         commissions->setMinimumSize(QSize(0, 30));
         commissions->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         commissions->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(commissions);
@@ -148,7 +149,7 @@ public:
         bookValue->setMinimumSize(QSize(0, 30));
         bookValue->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         bookValue->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(bookValue);
@@ -158,7 +159,7 @@ public:
         avgCB->setMinimumSize(QSize(0, 30));
         avgCB->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         avgCB->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(avgCB);
@@ -168,7 +169,7 @@ public:
         gainLoss->setMinimumSize(QSize(0, 30));
         gainLoss->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
 "color: rgb(255, 255, 255);\n"
-"border: 1px solid white;"));
+"border: 3px solid rgb(74, 74, 74);"));
         gainLoss->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(gainLoss);
@@ -210,7 +211,7 @@ public:
         price->setText(QApplication::translate("MergedScreen", "Price", nullptr));
         cost->setText(QApplication::translate("MergedScreen", "Cost", nullptr));
         proceeds->setText(QApplication::translate("MergedScreen", "Proceeds", nullptr));
-        commissions->setText(QApplication::translate("MergedScreen", "Commissions", nullptr));
+        commissions->setText(QApplication::translate("MergedScreen", "ACQ/DIS BV", nullptr));
         bookValue->setText(QApplication::translate("MergedScreen", "Book Value", nullptr));
         avgCB->setText(QApplication::translate("MergedScreen", "Average Base Cost", nullptr));
         gainLoss->setText(QApplication::translate("MergedScreen", "Gain/Loss", nullptr));

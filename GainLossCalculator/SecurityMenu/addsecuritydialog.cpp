@@ -35,7 +35,6 @@ void AddSecurityDialog::on_buttonBox_accepted()
                           ", [Buy] bit DEFAULT (1) NOT NULL"
                           ", [Number] bigint DEFAULT (1) NOT NULL"
                           ", [Cost] decimal DEFAULT (0) NOT NULL"
-                          ", [Commission] decimal DEFAULT (0) NOT NULL"
                           ");").arg(ui->tableName->text()));
         }
     }

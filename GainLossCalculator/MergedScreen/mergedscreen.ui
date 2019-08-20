@@ -36,6 +36,9 @@
         <layout class="QGridLayout" name="securities">
          <item row="0" column="0">
           <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item>
             <widget class="QLabel" name="description">
              <property name="minimumSize">
@@ -47,7 +50,7 @@
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Description</string>
@@ -68,7 +71,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Date</string>
@@ -89,7 +92,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Buy</string>
@@ -110,7 +113,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Sell</string>
@@ -131,7 +134,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Price</string>
@@ -152,7 +155,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Cost</string>
@@ -173,7 +176,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Proceeds</string>
@@ -194,10 +197,10 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
-              <string>Commissions</string>
+              <string>ACQ/DIS BV</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -215,7 +218,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Book Value</string>
@@ -236,7 +239,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Average Base Cost</string>
@@ -257,7 +260,7 @@ border: 1px solid white;</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(128, 162, 255);
 color: rgb(255, 255, 255);
-border: 1px solid white;</string>
+border: 3px solid rgb(74, 74, 74);</string>
              </property>
              <property name="text">
               <string>Gain/Loss</string>

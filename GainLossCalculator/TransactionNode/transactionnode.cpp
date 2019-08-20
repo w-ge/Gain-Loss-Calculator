@@ -2,7 +2,7 @@
 #include "ui_transactionnode.h"
 
 TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, int n, QString desc,
-                                 double c, double com) :
+                                 double c) :
     QWidget(parent),
     ui(new Ui::TransactionNode)
 {
@@ -15,7 +15,6 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
     number = n;
     description = desc;
     cost = c;
-    commission = com;
 
     ui->day->setValidator(new QIntValidator(1, 31));
     ui->month->setValidator(new QIntValidator(1, 12));
@@ -25,7 +24,6 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
     ui->sell->setValidator(new QIntValidator(1, 2147483647));
 
     ui->cost->setValidator(new QDoubleValidator(0, 2147483647, 2));
-    ui->commissions->setValidator(new QDoubleValidator(0, 2147483647, 2));
 
     ui->day->setText(QString::number(day));
     ui->month->setText(QString::number(month));
@@ -40,7 +38,6 @@ TransactionNode::TransactionNode(QWidget *parent, int d, int m, int y, bool b, i
 
     ui->description->setText(description);
     ui->cost->setText(QString::number(cost,'f',2));
-    ui->commissions->setText(QString::number(commission,'f',2));
 }
 
 TransactionNode::~TransactionNode()
@@ -63,7 +60,6 @@ void TransactionNode::update(){
     }
     description = ui->description->text();
     cost = ui->cost->text().toDouble();
-    commission = ui->commissions->text().toDouble();
 }
 
 void TransactionNode::on_delete_2_clicked()
