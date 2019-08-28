@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
@@ -29,7 +28,7 @@ public:
     QWidget *scrollAreaWidgetContents_3;
     QGridLayout *gridLayout;
     QGridLayout *securities;
-    QHBoxLayout *horizontalLayout;
+    QGridLayout *transactions;
     QLabel *description;
     QLabel *date;
     QLabel *buy;
@@ -53,6 +52,7 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         scrollArea = new QScrollArea(MergedScreen);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setStyleSheet(QString::fromUtf8("QLabel{color: rgb(255, 255, 255);}"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_3 = new QWidget();
         scrollAreaWidgetContents_3->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_3"));
@@ -61,9 +61,10 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         securities = new QGridLayout();
         securities->setObjectName(QString::fromUtf8("securities"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        transactions = new QGridLayout();
+        transactions->setObjectName(QString::fromUtf8("transactions"));
+        transactions->setHorizontalSpacing(0);
+        transactions->setVerticalSpacing(10);
         description = new QLabel(scrollAreaWidgetContents_3);
         description->setObjectName(QString::fromUtf8("description"));
         description->setMinimumSize(QSize(0, 30));
@@ -72,7 +73,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         description->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(description);
+        transactions->addWidget(description, 0, 0, 1, 1);
 
         date = new QLabel(scrollAreaWidgetContents_3);
         date->setObjectName(QString::fromUtf8("date"));
@@ -82,7 +83,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         date->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(date);
+        transactions->addWidget(date, 0, 1, 1, 1);
 
         buy = new QLabel(scrollAreaWidgetContents_3);
         buy->setObjectName(QString::fromUtf8("buy"));
@@ -92,7 +93,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         buy->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(buy);
+        transactions->addWidget(buy, 0, 2, 1, 1);
 
         sell = new QLabel(scrollAreaWidgetContents_3);
         sell->setObjectName(QString::fromUtf8("sell"));
@@ -102,7 +103,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         sell->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(sell);
+        transactions->addWidget(sell, 0, 3, 1, 1);
 
         price = new QLabel(scrollAreaWidgetContents_3);
         price->setObjectName(QString::fromUtf8("price"));
@@ -112,7 +113,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         price->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(price);
+        transactions->addWidget(price, 0, 4, 1, 1);
 
         cost = new QLabel(scrollAreaWidgetContents_3);
         cost->setObjectName(QString::fromUtf8("cost"));
@@ -122,7 +123,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         cost->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(cost);
+        transactions->addWidget(cost, 0, 5, 1, 1);
 
         proceeds = new QLabel(scrollAreaWidgetContents_3);
         proceeds->setObjectName(QString::fromUtf8("proceeds"));
@@ -132,7 +133,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         proceeds->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(proceeds);
+        transactions->addWidget(proceeds, 0, 6, 1, 1);
 
         commissions = new QLabel(scrollAreaWidgetContents_3);
         commissions->setObjectName(QString::fromUtf8("commissions"));
@@ -142,7 +143,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         commissions->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(commissions);
+        transactions->addWidget(commissions, 0, 7, 1, 1);
 
         bookValue = new QLabel(scrollAreaWidgetContents_3);
         bookValue->setObjectName(QString::fromUtf8("bookValue"));
@@ -152,7 +153,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         bookValue->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(bookValue);
+        transactions->addWidget(bookValue, 0, 8, 1, 1);
 
         avgCB = new QLabel(scrollAreaWidgetContents_3);
         avgCB->setObjectName(QString::fromUtf8("avgCB"));
@@ -162,7 +163,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         avgCB->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(avgCB);
+        transactions->addWidget(avgCB, 0, 9, 1, 1);
 
         gainLoss = new QLabel(scrollAreaWidgetContents_3);
         gainLoss->setObjectName(QString::fromUtf8("gainLoss"));
@@ -172,10 +173,10 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         gainLoss->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(gainLoss);
+        transactions->addWidget(gainLoss, 0, 10, 1, 1);
 
 
-        securities->addLayout(horizontalLayout, 0, 0, 1, 1);
+        securities->addLayout(transactions, 0, 0, 1, 1);
 
 
         gridLayout->addLayout(securities, 0, 0, 1, 1);

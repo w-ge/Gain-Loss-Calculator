@@ -4,8 +4,6 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include "mergedscreennode.h"
-
 
 namespace Ui {
 class MergedScreen;
@@ -19,13 +17,20 @@ public:
     explicit MergedScreen(QWidget *parent = nullptr);
     ~MergedScreen();
 
+    // Creates the table of all securities
     void build();
 
+    // Creates the table for the security named tableName
+    void buildNode(QString tableName, int * row);
+
 signals:
+
+    // Go back to main menu signal
     void mergedToSecurity();
 
 private slots:
 
+    // Go back to main menu when back button is clicked
     void on_back_clicked();
 
 private:

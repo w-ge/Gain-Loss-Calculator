@@ -28,6 +28,7 @@ public:
     QString description;
     double cost;
 
+    // Updates members to be equal to the user's input
     void update();
 
 signals:
@@ -35,10 +36,13 @@ signals:
 
 private slots:
 
+    // Send signal to delete this node if the Delete button is pressed
     void on_delete_2_clicked();
 
+    // Clear the text in the sell lineedit if user adds input to the buy lineedit
     void on_buy_textChanged(const QString &text);
 
+    // Clear the text in the buy lineedit if user adds input to the sell lineedit
     void on_sell_textChanged(const QString &text);
 
 private:

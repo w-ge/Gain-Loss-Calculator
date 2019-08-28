@@ -32,11 +32,23 @@ private:
 
 private slots:
     void goToTransaction(QString);
+
+    // Go from transaction screen to edit
     void goToEdit(QString);
+
+    // Go from main menu to transaction screen
     void securityToTransaction(QString);
+
+    // Go from transaction screen to main menu
     void goToMenu();
+
+    // Go from main menu to merged screen
     void goToMerged();
+
+    // Go from merged screen to main menu
     void mergedToSecurity();
+
+    // Go to merged screen from transaction screen
     void goToAllFromTransaction();
 };
 

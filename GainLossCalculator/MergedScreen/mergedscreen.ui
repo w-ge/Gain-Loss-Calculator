@@ -19,6 +19,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(255, 255, 255);}</string>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
@@ -35,11 +38,14 @@
        <item row="0" column="0">
         <layout class="QGridLayout" name="securities">
          <item row="0" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <property name="spacing">
+          <layout class="QGridLayout" name="transactions">
+           <property name="horizontalSpacing">
             <number>0</number>
            </property>
-           <item>
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0">
             <widget class="QLabel" name="description">
              <property name="minimumSize">
               <size>
@@ -60,7 +66,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="1">
             <widget class="QLabel" name="date">
              <property name="minimumSize">
               <size>
@@ -81,7 +87,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="2">
             <widget class="QLabel" name="buy">
              <property name="minimumSize">
               <size>
@@ -102,7 +108,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="3">
             <widget class="QLabel" name="sell">
              <property name="minimumSize">
               <size>
@@ -123,7 +129,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="4">
             <widget class="QLabel" name="price">
              <property name="minimumSize">
               <size>
@@ -144,7 +150,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="5">
             <widget class="QLabel" name="cost">
              <property name="minimumSize">
               <size>
@@ -165,7 +171,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="6">
             <widget class="QLabel" name="proceeds">
              <property name="minimumSize">
               <size>
@@ -186,7 +192,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="7">
             <widget class="QLabel" name="commissions">
              <property name="minimumSize">
               <size>
@@ -207,7 +213,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="8">
             <widget class="QLabel" name="bookValue">
              <property name="minimumSize">
               <size>
@@ -228,7 +234,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="9">
             <widget class="QLabel" name="avgCB">
              <property name="minimumSize">
               <size>
@@ -249,7 +255,7 @@ border: 3px solid rgb(74, 74, 74);</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="10">
             <widget class="QLabel" name="gainLoss">
              <property name="minimumSize">
               <size>

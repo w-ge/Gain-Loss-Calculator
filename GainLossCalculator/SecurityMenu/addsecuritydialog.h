@@ -19,6 +19,8 @@ public:
     ~AddSecurityDialog();
 
 private slots:
+
+    // If OK is clicked, create a new security and add it to database
     void on_buttonBox_accepted();
 
 private:

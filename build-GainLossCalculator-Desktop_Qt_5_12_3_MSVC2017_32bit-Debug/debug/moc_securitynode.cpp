@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SecurityNode_t {
     QByteArrayData data[6];
-    char stringdata0[97];
+    char stringdata0[89];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,13 +35,13 @@ QT_MOC_LITERAL(0, 0, 12), // "SecurityNode"
 QT_MOC_LITERAL(1, 13, 21), // "securityToTransaction"
 QT_MOC_LITERAL(2, 35, 0), // ""
 QT_MOC_LITERAL(3, 36, 18), // "deleteSecurityNode"
-QT_MOC_LITERAL(4, 55, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(5, 77, 19) // "on_delete_2_clicked"
+QT_MOC_LITERAL(4, 55, 19), // "on_delete_2_clicked"
+QT_MOC_LITERAL(5, 75, 13) // "on_go_clicked"
 
     },
     "SecurityNode\0securityToTransaction\0\0"
-    "deleteSecurityNode\0on_pushButton_clicked\0"
-    "on_delete_2_clicked"
+    "deleteSecurityNode\0on_delete_2_clicked\0"
+    "on_go_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -85,8 +85,8 @@ void SecurityNode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->securityToTransaction((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->deleteSecurityNode((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->on_pushButton_clicked(); break;
-        case 3: _t->on_delete_2_clicked(); break;
+        case 2: _t->on_delete_2_clicked(); break;
+        case 3: _t->on_go_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

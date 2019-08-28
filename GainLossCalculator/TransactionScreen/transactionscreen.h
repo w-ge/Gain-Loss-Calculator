@@ -18,9 +18,10 @@ class TransactionScreen : public QWidget
     Q_OBJECT
 
 public:
-    explicit TransactionScreen(QWidget *parent = nullptr, QString text = "");
+    explicit TransactionScreen(QWidget *parent = nullptr, QString name = "");
     ~TransactionScreen();
 
+    // Create the list of transactions from the database
     void build();
 
 signals:
@@ -29,10 +30,14 @@ signals:
     void goToAllFromTransaction();
 
 private slots:
+
+    // Go to edit screen if the Edit button is clicked
     void on_edit_clicked();
 
+    // Go back to main menu if the Back button is clicked
     void on_back_clicked();
 
+    // Go to the merged screen if the View All button is clicked
     void on_viewAll_clicked();
 
 private:

@@ -22,7 +22,7 @@ class Ui_SecurityNode
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
+    QPushButton *go;
     QPushButton *delete_2;
 
     void setupUi(QWidget *SecurityNode)
@@ -41,16 +41,16 @@ public:
         horizontalLayout->setSpacing(40);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(SecurityNode);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        go = new QPushButton(SecurityNode);
+        go->setObjectName(QString::fromUtf8("go"));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy1);
-        pushButton->setStyleSheet(QString::fromUtf8(""));
+        sizePolicy1.setHeightForWidth(go->sizePolicy().hasHeightForWidth());
+        go->setSizePolicy(sizePolicy1);
+        go->setStyleSheet(QString::fromUtf8(""));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(go);
 
         delete_2 = new QPushButton(SecurityNode);
         delete_2->setObjectName(QString::fromUtf8("delete_2"));
@@ -72,7 +72,7 @@ public:
     void retranslateUi(QWidget *SecurityNode)
     {
         SecurityNode->setWindowTitle(QApplication::translate("SecurityNode", "Form", nullptr));
-        pushButton->setText(QApplication::translate("SecurityNode", "PushButton", nullptr));
+        go->setText(QApplication::translate("SecurityNode", "PushButton", nullptr));
         delete_2->setText(QString());
     } // retranslateUi
 

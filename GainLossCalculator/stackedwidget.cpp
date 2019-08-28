@@ -8,6 +8,7 @@ StackedWidget::StackedWidget(QWidget *parent) :
     ui->setupUi(this);
     QFontDatabase::addApplicationFont(":/font/Fonts/Helvetica.ttf");
 
+    // Open Database
     db = QSqlDatabase::addDatabase("QSQLITE", "securities");
     db.setDatabaseName("../data.db");
 
@@ -19,10 +20,13 @@ StackedWidget::StackedWidget(QWidget *parent) :
     else{
 
         qDebug()<< "Connected";
+
+        // Create main Menu
         sm = new SecurityMenu();
         this->insertWidget(0, sm);
         connect(sm, SIGNAL(securityToTransaction(QString)), this, SLOT(securityToTransaction(QString)));
-        connect(sm, SIGNAL(goToMerged()), this, SLOT(goToMerged()));
+        connect(sm, SIGNAL(goToMerged()), this, SLOT(goToMerged()));\
+
         this->setWindowState(Qt::WindowMaximized);
         this->setWindowTitle("Gain and Loss Calculator");
     }    
@@ -33,6 +37,7 @@ StackedWidget::~StackedWidget()
     delete ui;
 }
 
+// See Header
 void StackedWidget::goToEdit(QString text){
     es = new EditScreen(nullptr, text);
     this->insertWidget(2, es);
@@ -44,6 +49,7 @@ void StackedWidget::goToEdit(QString text){
     connect(es, SIGNAL(goToTransaction(QString)), this, SLOT(goToTransaction(QString)));
 }
 
+// See Header
 void StackedWidget::goToTransaction(QString text){
     ts = new TransactionScreen(nullptr, text);
     this->insertWidget(1, ts);
@@ -56,6 +62,7 @@ void StackedWidget::goToTransaction(QString text){
     es->deleteLater();
 }
 
+// See Header
 void StackedWidget::securityToTransaction(QString text){
     ts = new TransactionScreen(nullptr, text);
     this->insertWidget(1, ts);
@@ -67,6 +74,8 @@ void StackedWidget::securityToTransaction(QString text){
     this->removeWidget(sm);
     sm->deleteLater();
 }
+
+// See Header
 void StackedWidget::goToMenu(){
     sm = new SecurityMenu();
     this->insertWidget(0, sm);
@@ -78,6 +87,7 @@ void StackedWidget::goToMenu(){
     ts->deleteLater();
 }
 
+// See Header
 void StackedWidget::goToMerged(){
     ms = new MergedScreen();
     this->insertWidget(3, ms);
@@ -88,6 +98,7 @@ void StackedWidget::goToMerged(){
     sm->deleteLater();
 }
 
+// See Header
 void StackedWidget::mergedToSecurity(){
     sm = new SecurityMenu();
     this->insertWidget(0, sm);
@@ -99,6 +110,7 @@ void StackedWidget::mergedToSecurity(){
     ms->deleteLater();
 }
 
+// See Header
 void StackedWidget::goToAllFromTransaction(){
     ms = new MergedScreen();
     this->insertWidget(3, ms);

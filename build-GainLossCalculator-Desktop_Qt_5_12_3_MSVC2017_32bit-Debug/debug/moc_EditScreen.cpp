@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_EditScreen_t {
     QByteArrayData data[8];
-    char stringdata0[118];
+    char stringdata0[116];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,13 +38,12 @@ QT_MOC_LITERAL(3, 28, 25), // "on_addTransaction_clicked"
 QT_MOC_LITERAL(4, 54, 17), // "on_revert_clicked"
 QT_MOC_LITERAL(5, 72, 10), // "deleteThis"
 QT_MOC_LITERAL(6, 83, 16), // "TransactionNode*"
-QT_MOC_LITERAL(7, 100, 17) // "on_cancel_clicked"
+QT_MOC_LITERAL(7, 100, 15) // "on_back_clicked"
 
     },
     "EditScreen\0goToTransaction\0\0"
     "on_addTransaction_clicked\0on_revert_clicked\0"
-    "deleteThis\0TransactionNode*\0"
-    "on_cancel_clicked"
+    "deleteThis\0TransactionNode*\0on_back_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -92,7 +91,7 @@ void EditScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_addTransaction_clicked(); break;
         case 2: _t->on_revert_clicked(); break;
         case 3: _t->deleteThis((*reinterpret_cast< TransactionNode*(*)>(_a[1]))); break;
-        case 4: _t->on_cancel_clicked(); break;
+        case 4: _t->on_back_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {

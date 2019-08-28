@@ -21,9 +21,14 @@ public:
     explicit SecurityMenu(QWidget *parent = nullptr);
     ~SecurityMenu();
 
+    // Creates the list of securities
     void build();
+
+    // Refreshes the list of securities
     void refresh();
+
 signals:
+
     void securityToTransaction(QString);
     void goToMerged();
 
@@ -32,9 +37,17 @@ private:
     QSqlDatabase db;
 
 private slots:
+
+    // Sends the signal to go to the Transaction Screen for that security
     void linkTransaction(QString);
+
+    // Ask user to create a new security when Add button is clicked
     void on_add_clicked();
+
+    // Delete the security if the delete button is pressed for that security
     void deleteSecurityNode(QString);
+
+    // Go to merged screen
     void on_merge_clicked();
 };
 
