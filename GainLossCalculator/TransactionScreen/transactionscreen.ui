@@ -40,8 +40,8 @@
          <property name="verticalSpacing">
           <number>10</number>
          </property>
-         <item row="0" column="0">
-          <widget class="QLabel" name="description">
+         <item row="0" column="8">
+          <widget class="QLabel" name="acq">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -54,7 +54,70 @@ color: rgb(255, 255, 255);
 border: 3px solid rgb(74, 74, 74);</string>
            </property>
            <property name="text">
-            <string>Description</string>
+            <string>ACQ/DIS BV</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="buy">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(128, 162, 255);
+color: rgb(255, 255, 255);
+border: 3px solid rgb(74, 74, 74);</string>
+           </property>
+           <property name="text">
+            <string>Buy</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="11">
+          <widget class="QLabel" name="gainLoss">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(128, 162, 255);
+color: rgb(255, 255, 255);
+border: 3px solid rgb(74, 74, 74);</string>
+           </property>
+           <property name="text">
+            <string>Gain/Loss</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QLabel" name="price">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(128, 162, 255);
+color: rgb(255, 255, 255);
+border: 3px solid rgb(74, 74, 74);</string>
+           </property>
+           <property name="text">
+            <string>Price</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -83,48 +146,6 @@ border: 3px solid rgb(74, 74, 74);</string>
           </widget>
          </item>
          <item row="0" column="10">
-          <widget class="QLabel" name="gainLoss">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(128, 162, 255);
-color: rgb(255, 255, 255);
-border: 3px solid rgb(74, 74, 74);</string>
-           </property>
-           <property name="text">
-            <string>Gain/Loss</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="6">
-          <widget class="QLabel" name="proceeds">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(128, 162, 255);
-color: rgb(255, 255, 255);
-border: 3px solid rgb(74, 74, 74);</string>
-           </property>
-           <property name="text">
-            <string>Proceeds</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="9">
           <widget class="QLabel" name="avgCB">
            <property name="minimumSize">
             <size>
@@ -166,8 +187,8 @@ border: 3px solid rgb(74, 74, 74);</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="buy">
+         <item row="0" column="0">
+          <widget class="QLabel" name="description">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -180,49 +201,7 @@ color: rgb(255, 255, 255);
 border: 3px solid rgb(74, 74, 74);</string>
            </property>
            <property name="text">
-            <string>Buy</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="8">
-          <widget class="QLabel" name="bookValue">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(128, 162, 255);
-color: rgb(255, 255, 255);
-border: 3px solid rgb(74, 74, 74);</string>
-           </property>
-           <property name="text">
-            <string>Book Value</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QLabel" name="price">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(128, 162, 255);
-color: rgb(255, 255, 255);
-border: 3px solid rgb(74, 74, 74);</string>
-           </property>
-           <property name="text">
-            <string>Price</string>
+            <string>Description</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -250,8 +229,8 @@ border: 3px solid rgb(74, 74, 74);</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="7">
-          <widget class="QLabel" name="comissions">
+         <item row="0" column="9">
+          <widget class="QLabel" name="bookValue">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -264,7 +243,43 @@ color: rgb(255, 255, 255);
 border: 3px solid rgb(74, 74, 74);</string>
            </property>
            <property name="text">
-            <string>ACQ/DIS BV</string>
+            <string>Book Value</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="6">
+          <widget class="QLabel" name="proceeds">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(128, 162, 255);
+color: rgb(255, 255, 255);
+border: 3px solid rgb(74, 74, 74);</string>
+           </property>
+           <property name="text">
+            <string>Proceeds</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="7">
+          <widget class="QLabel" name="totalShares">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(128, 162, 255);
+color: rgb(255, 255, 255);
+border: 3px solid rgb(74, 74, 74);</string>
+           </property>
+           <property name="text">
+            <string>Total Shares</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignHCenter|Qt::AlignTop</set>

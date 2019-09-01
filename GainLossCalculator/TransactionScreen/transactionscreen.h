@@ -21,6 +21,22 @@ public:
     explicit TransactionScreen(QWidget *parent = nullptr, QString name = "");
     ~TransactionScreen();
 
+    // Indexes
+    static int description;
+    static int date;
+    static int buy;
+    static int sell;
+    static int price;
+    static int cost;
+    static int proceeds;
+    static int totalShares;
+    static int acq;
+    static int bookValue;
+    static int avgCostBase;
+    static int gain;
+
+    static int numOfColumns;
+
     // Create the list of transactions from the database
     void build();
 

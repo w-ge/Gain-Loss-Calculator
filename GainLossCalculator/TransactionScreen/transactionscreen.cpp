@@ -1,6 +1,21 @@
 #include "transactionscreen.h"
 #include "ui_transactionscreen.h"
 
+int TransactionScreen::description = 0;
+int TransactionScreen::date = 1;
+int TransactionScreen::buy = 2;
+int TransactionScreen::sell = 3;
+int TransactionScreen::price = 4;
+int TransactionScreen::cost = 5;
+int TransactionScreen::proceeds = 6;
+int TransactionScreen::totalShares = 7;
+int TransactionScreen::acq = 8;
+int TransactionScreen::bookValue = 9;
+int TransactionScreen::avgCostBase = 10;
+int TransactionScreen::gain = 11;
+
+int TransactionScreen::numOfColumns = 12;
+
 TransactionScreen::TransactionScreen(QWidget *parent, QString name) :
     QWidget(parent),
     ui(new Ui::TransactionScreen)
@@ -19,7 +34,8 @@ TransactionScreen::TransactionScreen(QWidget *parent, QString name) :
     ui->price->setFont(font);
     ui->cost->setFont(font);
     ui->proceeds->setFont(font);
-    ui->comissions->setFont(font);
+    ui->acq->setFont(font);
+    ui->totalShares->setFont(font);
     ui->bookValue->setFont(font);
     ui->avgCB->setFont(font);
     ui->gainLoss->setFont(font);
@@ -65,13 +81,13 @@ void TransactionScreen::build(){
         QLabel * desc = new QLabel();
         desc->setText(tableName);
         desc->setAlignment(Qt::AlignHCenter);
-        ui->transactions->addWidget(desc, i, 0);
+        ui->transactions->addWidget(desc, i, TransactionScreen::description);
 
         // Set Date
         QLabel * date = new QLabel();
         date->setAlignment(Qt::AlignHCenter);
         date->setText(query.value(1).toString() + "/" +  query.value(2).toString() + "/" + query.value(3).toString());
-        ui->transactions->addWidget(date, i, 1 );
+        ui->transactions->addWidget(date, i, TransactionScreen::date );
 
         // Set Number of Shares
         QLabel * num = new QLabel();
@@ -85,15 +101,15 @@ void TransactionScreen::build(){
 
         // If a BUY transaction, place the cost and number of shares in the appropriate place
         if(query.value(4).toBool()){
-                ui->transactions->addWidget(num, i, 2 );
-                ui->transactions->addWidget(cost, i, 5);
+                ui->transactions->addWidget(num, i, TransactionScreen::buy);
+                ui->transactions->addWidget(cost, i, TransactionScreen::cost);
                 totalBuy += query.value(5).toInt();
         }
 
         // If a SELL transaction, place the cost and number of shares in the appropriate place
         else {
-            ui->transactions->addWidget(num, i, 3 );
-            ui->transactions->addWidget(cost, i, 6);
+            ui->transactions->addWidget(num, i, TransactionScreen::sell);
+            ui->transactions->addWidget(cost, i, TransactionScreen::proceeds);
             totalSell += query.value(5).toInt();
         }
 
@@ -101,7 +117,7 @@ void TransactionScreen::build(){
         QLabel * price = new QLabel();
         price->setText(QString::number(query.value(6).toDouble() / query.value(5).toDouble(),'f',2));
         price->setAlignment(Qt::AlignHCenter);
-        ui->transactions->addWidget(price, i, 4);
+        ui->transactions->addWidget(price, i, TransactionScreen::price);
 
         // If the transaction is a BUY Transaction,
         if(query.value(4).toBool()){
@@ -120,13 +136,13 @@ void TransactionScreen::build(){
                     QLabel * acq = new QLabel();
                     acq->setText(QString::number(negativeShares * avgCostBase,'f',2));
                     acq->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(acq, i, 7);
+                    ui->transactions->addWidget(acq, i, TransactionScreen::acq);
 
                     // Set Gain
                     QLabel * gain = new QLabel();
                     gain->setText(QString::number((-1 * avgCostBase * negativeShares) - (price->text().toDouble() * negativeShares),'f',2));
                     gain->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(gain, i, 10);
+                    ui->transactions->addWidget(gain, i, TransactionScreen::gain);
                     totalGain += (-1 * avgCostBase * negativeShares) - (price->text().toDouble() * negativeShares);
 
                     // Set positive side
@@ -135,13 +151,13 @@ void TransactionScreen::build(){
                     QLabel * bookVal = new QLabel();
                     bookVal->setText(QString::number(totalCost,'f',2));
                     bookVal->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(bookVal, i, 8);
+                    ui->transactions->addWidget(bookVal, i, TransactionScreen::bookValue);
 
                     QLabel * acb = new QLabel();
                     avgCostBase = totalCost / totalShares;
                     acb->setText(QString::number(avgCostBase,'f',2));
                     acb->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(acb, i, 9);
+                    ui->transactions->addWidget(acb, i, TransactionScreen::avgCostBase);
 
                 }
 
@@ -152,22 +168,22 @@ void TransactionScreen::build(){
                     QLabel * acq = new QLabel();
                     acq->setText(QString::number(num->text().toDouble() * avgCostBase,'f',2));
                     acq->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(acq, i, 7);
+                    ui->transactions->addWidget(acq, i, TransactionScreen::acq);
 
                     // Set Gain
                     QLabel * gain = new QLabel();
                     gain->setText(QString::number((-1 * avgCostBase * num->text().toInt()) - cost->text().toDouble(),'f',2));
                     gain->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(gain, i, 10);
+                    ui->transactions->addWidget(gain, i, TransactionScreen::gain);
                     totalGain += (-1 * avgCostBase * num->text().toInt()) - cost->text().toDouble();
 
                     totalCost = avgCostBase * totalShares;
 
                     // Set Book Value
                     QLabel * bookVal = new QLabel();
-                    bookVal->setText(QString::number(totalCost,'f',2));
+                    bookVal->setText(QString::number(-1 * totalCost,'f',2));
                     bookVal->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(bookVal, i, 8);
+                    ui->transactions->addWidget(bookVal, i, TransactionScreen::bookValue);
                 }
 
             }
@@ -181,14 +197,14 @@ void TransactionScreen::build(){
                 QLabel * bookVal = new QLabel();
                 bookVal->setText(QString::number(totalCost,'f',2));
                 bookVal->setAlignment(Qt::AlignHCenter);
-                ui->transactions->addWidget(bookVal, i, 8);
+                ui->transactions->addWidget(bookVal, i, TransactionScreen::bookValue);
 
                 // Set ACB
                 QLabel * acb = new QLabel();
                 avgCostBase = totalCost / totalShares;
                 acb->setText(QString::number(avgCostBase,'f',2));
                 acb->setAlignment(Qt::AlignHCenter);
-                ui->transactions->addWidget(acb, i, 9);
+                ui->transactions->addWidget(acb, i, TransactionScreen::avgCostBase);
 
             }
 
@@ -204,16 +220,16 @@ void TransactionScreen::build(){
 
                 // Set BookValue
                 QLabel * bookVal = new QLabel();
-                bookVal->setText(QString::number(totalCost,'f',2));
+                bookVal->setText(QString::number(-1 * totalCost,'f',2));
                 bookVal->setAlignment(Qt::AlignHCenter);
-                ui->transactions->addWidget(bookVal, i, 8);
+                ui->transactions->addWidget(bookVal, i, TransactionScreen::bookValue);
 
                 // Set ACB
                 QLabel * acb = new QLabel();
                 avgCostBase = totalCost / totalShares;
                 acb->setText(QString::number(avgCostBase,'f',2));
                 acb->setAlignment(Qt::AlignHCenter);
-                ui->transactions->addWidget(acb, i, 9);
+                ui->transactions->addWidget(acb, i, TransactionScreen::avgCostBase);
             }
 
             // If total shares are positive
@@ -228,30 +244,30 @@ void TransactionScreen::build(){
                     QLabel * acq = new QLabel();
                     acq->setText(QString::number(positiveShares * avgCostBase,'f',2));
                     acq->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(acq, i, 7);
+                    ui->transactions->addWidget(acq, i, TransactionScreen::acq);
 
                     // Set Gain
                     QLabel * gain = new QLabel();
-                    gain->setText(QString::number(cost->text().toDouble() - (avgCostBase * positiveShares),'f',2));
+                    gain->setText(QString::number((price->text().toDouble() * positiveShares) - (avgCostBase * positiveShares),'f',2));
                     gain->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(gain, i, 10);
-                    totalGain += cost->text().toDouble() - (avgCostBase * positiveShares);
+                    ui->transactions->addWidget(gain, i, TransactionScreen::gain);
+                    totalGain += (price->text().toDouble() * positiveShares) - (avgCostBase * positiveShares);
 
                     // Begin negative side
-                    totalCost = price->text().toDouble() * totalShares;
+                    totalCost = -1 * price->text().toDouble() * totalShares;
 
                     // Set BookValue
                     QLabel * bookVal = new QLabel();
-                    bookVal->setText(QString::number(totalCost,'f',2));
+                    bookVal->setText(QString::number(-1 * totalCost,'f',2));
                     bookVal->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(bookVal, i, 8);
+                    ui->transactions->addWidget(bookVal, i, TransactionScreen::bookValue);
 
                     // Set ACB
                     QLabel * acb = new QLabel();
                     avgCostBase = totalCost / totalShares;
                     acb->setText(QString::number(avgCostBase,'f',2));
                     acb->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(acb, i, 9);
+                    ui->transactions->addWidget(acb, i, TransactionScreen::avgCostBase);
                 }
                 else{
 
@@ -259,13 +275,13 @@ void TransactionScreen::build(){
                     QLabel * acq = new QLabel();
                     acq->setText(QString::number(num->text().toDouble() * avgCostBase,'f',2));
                     acq->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(acq, i, 7);
+                    ui->transactions->addWidget(acq, i, TransactionScreen::acq);
 
                     // Set Gain
                     QLabel * gain = new QLabel();
                     gain->setText(QString::number(cost->text().toDouble() - (avgCostBase * num->text().toInt()),'f',2));
                     gain->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(gain, i, 10);
+                    ui->transactions->addWidget(gain, i, TransactionScreen::gain);
                     totalGain += cost->text().toDouble() - (avgCostBase * num->text().toInt());
 
                     // Set BookValue
@@ -273,16 +289,21 @@ void TransactionScreen::build(){
                     QLabel * bookVal = new QLabel();
                     bookVal->setText(QString::number(totalCost,'f',2));
                     bookVal->setAlignment(Qt::AlignHCenter);
-                    ui->transactions->addWidget(bookVal, i, 8);
+                    ui->transactions->addWidget(bookVal, i, TransactionScreen::bookValue);
                 }
             }
         }
+
+        QLabel * totalSharesLabel = new QLabel();
+        totalSharesLabel->setText(QString::number(totalShares,'f',2));
+        totalSharesLabel->setAlignment(Qt::AlignHCenter);
+        ui->transactions->addWidget(totalSharesLabel, i, TransactionScreen::totalShares);
 
         i++;
     }
 
     // Add a line to seperate transactions from totals
-    for(int j = 0; j < 11; j++){
+    for(int j = 0; j < TransactionScreen::numOfColumns; j++){
         QFrame *line = new QFrame();
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
@@ -298,27 +319,27 @@ void TransactionScreen::build(){
     tGain->setText(QString::number(totalGain,'f',2));
     tGain->setAlignment(Qt::AlignHCenter);
     tGain->setFont(font);
-    ui->transactions->addWidget(tGain, i, 10);
+    ui->transactions->addWidget(tGain, i, TransactionScreen::gain);
 
     // Set Total Amount of Shares Bought
     QLabel * tBuy = new QLabel();
     tBuy->setText(QString::number(totalBuy));
     tBuy->setAlignment(Qt::AlignHCenter);
     tBuy->setFont(font);
-    ui->transactions->addWidget(tBuy, i, 2);
+    ui->transactions->addWidget(tBuy, i, TransactionScreen::buy);
 
     // Set Total Amount of Shares Sold
     QLabel * tSell = new QLabel();
     tSell->setText(QString::number(totalSell));
     tSell->setAlignment(Qt::AlignHCenter);
     tSell->setFont(font);
-    ui->transactions->addWidget(tSell, i, 3);
+    ui->transactions->addWidget(tSell, i, TransactionScreen::sell);
 
     // Set Total Gain
     QLabel * totalText = new QLabel();
     totalText->setText("Total:");
     totalText->setFont(font);
-    ui->transactions->addWidget(totalText, i, 0);
+    ui->transactions->addWidget(totalText, i, TransactionScreen::description);
 
     ui->transactions->setRowStretch(i + 1, 1);
 }

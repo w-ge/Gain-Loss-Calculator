@@ -17,6 +17,22 @@ public:
     explicit MergedScreen(QWidget *parent = nullptr);
     ~MergedScreen();
 
+    // Indexes
+    static int description;
+    static int date;
+    static int buy;
+    static int sell;
+    static int price;
+    static int cost;
+    static int proceeds;
+    static int totalShares;
+    static int acq;
+    static int bookValue;
+    static int avgCostBase;
+    static int gain;
+
+    static int numOfColumns;
+
     // Creates the table of all securities
     void build();
 

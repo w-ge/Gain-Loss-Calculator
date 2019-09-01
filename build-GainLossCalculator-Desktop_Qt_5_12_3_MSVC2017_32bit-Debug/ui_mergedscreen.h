@@ -29,17 +29,18 @@ public:
     QGridLayout *gridLayout;
     QGridLayout *securities;
     QGridLayout *transactions;
-    QLabel *description;
-    QLabel *date;
     QLabel *buy;
     QLabel *sell;
     QLabel *price;
     QLabel *cost;
+    QLabel *bookValue;
     QLabel *proceeds;
     QLabel *commissions;
-    QLabel *bookValue;
-    QLabel *avgCB;
     QLabel *gainLoss;
+    QLabel *description;
+    QLabel *date;
+    QLabel *avgCB;
+    QLabel *totalShares;
     QPushButton *back;
 
     void setupUi(QWidget *MergedScreen)
@@ -65,26 +66,6 @@ public:
         transactions->setObjectName(QString::fromUtf8("transactions"));
         transactions->setHorizontalSpacing(0);
         transactions->setVerticalSpacing(10);
-        description = new QLabel(scrollAreaWidgetContents_3);
-        description->setObjectName(QString::fromUtf8("description"));
-        description->setMinimumSize(QSize(0, 30));
-        description->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"border: 3px solid rgb(74, 74, 74);"));
-        description->setAlignment(Qt::AlignCenter);
-
-        transactions->addWidget(description, 0, 0, 1, 1);
-
-        date = new QLabel(scrollAreaWidgetContents_3);
-        date->setObjectName(QString::fromUtf8("date"));
-        date->setMinimumSize(QSize(0, 30));
-        date->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"border: 3px solid rgb(74, 74, 74);"));
-        date->setAlignment(Qt::AlignCenter);
-
-        transactions->addWidget(date, 0, 1, 1, 1);
-
         buy = new QLabel(scrollAreaWidgetContents_3);
         buy->setObjectName(QString::fromUtf8("buy"));
         buy->setMinimumSize(QSize(0, 30));
@@ -125,6 +106,16 @@ public:
 
         transactions->addWidget(cost, 0, 5, 1, 1);
 
+        bookValue = new QLabel(scrollAreaWidgetContents_3);
+        bookValue->setObjectName(QString::fromUtf8("bookValue"));
+        bookValue->setMinimumSize(QSize(0, 30));
+        bookValue->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 3px solid rgb(74, 74, 74);"));
+        bookValue->setAlignment(Qt::AlignCenter);
+
+        transactions->addWidget(bookValue, 0, 9, 1, 1);
+
         proceeds = new QLabel(scrollAreaWidgetContents_3);
         proceeds->setObjectName(QString::fromUtf8("proceeds"));
         proceeds->setMinimumSize(QSize(0, 30));
@@ -143,27 +134,7 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         commissions->setAlignment(Qt::AlignCenter);
 
-        transactions->addWidget(commissions, 0, 7, 1, 1);
-
-        bookValue = new QLabel(scrollAreaWidgetContents_3);
-        bookValue->setObjectName(QString::fromUtf8("bookValue"));
-        bookValue->setMinimumSize(QSize(0, 30));
-        bookValue->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"border: 3px solid rgb(74, 74, 74);"));
-        bookValue->setAlignment(Qt::AlignCenter);
-
-        transactions->addWidget(bookValue, 0, 8, 1, 1);
-
-        avgCB = new QLabel(scrollAreaWidgetContents_3);
-        avgCB->setObjectName(QString::fromUtf8("avgCB"));
-        avgCB->setMinimumSize(QSize(0, 30));
-        avgCB->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
-"color: rgb(255, 255, 255);\n"
-"border: 3px solid rgb(74, 74, 74);"));
-        avgCB->setAlignment(Qt::AlignCenter);
-
-        transactions->addWidget(avgCB, 0, 9, 1, 1);
+        transactions->addWidget(commissions, 0, 8, 1, 1);
 
         gainLoss = new QLabel(scrollAreaWidgetContents_3);
         gainLoss->setObjectName(QString::fromUtf8("gainLoss"));
@@ -173,7 +144,46 @@ public:
 "border: 3px solid rgb(74, 74, 74);"));
         gainLoss->setAlignment(Qt::AlignCenter);
 
-        transactions->addWidget(gainLoss, 0, 10, 1, 1);
+        transactions->addWidget(gainLoss, 0, 11, 1, 1);
+
+        description = new QLabel(scrollAreaWidgetContents_3);
+        description->setObjectName(QString::fromUtf8("description"));
+        description->setMinimumSize(QSize(0, 30));
+        description->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 3px solid rgb(74, 74, 74);"));
+        description->setAlignment(Qt::AlignCenter);
+
+        transactions->addWidget(description, 0, 0, 1, 1);
+
+        date = new QLabel(scrollAreaWidgetContents_3);
+        date->setObjectName(QString::fromUtf8("date"));
+        date->setMinimumSize(QSize(0, 30));
+        date->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 3px solid rgb(74, 74, 74);"));
+        date->setAlignment(Qt::AlignCenter);
+
+        transactions->addWidget(date, 0, 1, 1, 1);
+
+        avgCB = new QLabel(scrollAreaWidgetContents_3);
+        avgCB->setObjectName(QString::fromUtf8("avgCB"));
+        avgCB->setMinimumSize(QSize(0, 30));
+        avgCB->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 3px solid rgb(74, 74, 74);"));
+        avgCB->setAlignment(Qt::AlignCenter);
+
+        transactions->addWidget(avgCB, 0, 10, 1, 1);
+
+        totalShares = new QLabel(scrollAreaWidgetContents_3);
+        totalShares->setObjectName(QString::fromUtf8("totalShares"));
+        totalShares->setStyleSheet(QString::fromUtf8("background-color: rgb(128, 162, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 3px solid rgb(74, 74, 74);"));
+        totalShares->setAlignment(Qt::AlignCenter);
+
+        transactions->addWidget(totalShares, 0, 7, 1, 1);
 
 
         securities->addLayout(transactions, 0, 0, 1, 1);
@@ -205,17 +215,18 @@ public:
     void retranslateUi(QWidget *MergedScreen)
     {
         MergedScreen->setWindowTitle(QApplication::translate("MergedScreen", "Form", nullptr));
-        description->setText(QApplication::translate("MergedScreen", "Description", nullptr));
-        date->setText(QApplication::translate("MergedScreen", "Date", nullptr));
         buy->setText(QApplication::translate("MergedScreen", "Buy", nullptr));
         sell->setText(QApplication::translate("MergedScreen", "Sell", nullptr));
         price->setText(QApplication::translate("MergedScreen", "Price", nullptr));
         cost->setText(QApplication::translate("MergedScreen", "Cost", nullptr));
+        bookValue->setText(QApplication::translate("MergedScreen", "Book Value", nullptr));
         proceeds->setText(QApplication::translate("MergedScreen", "Proceeds", nullptr));
         commissions->setText(QApplication::translate("MergedScreen", "ACQ/DIS BV", nullptr));
-        bookValue->setText(QApplication::translate("MergedScreen", "Book Value", nullptr));
-        avgCB->setText(QApplication::translate("MergedScreen", "Average Base Cost", nullptr));
         gainLoss->setText(QApplication::translate("MergedScreen", "Gain/Loss", nullptr));
+        description->setText(QApplication::translate("MergedScreen", "Description", nullptr));
+        date->setText(QApplication::translate("MergedScreen", "Date", nullptr));
+        avgCB->setText(QApplication::translate("MergedScreen", "Average Base Cost", nullptr));
+        totalShares->setText(QApplication::translate("MergedScreen", "Total Shares", nullptr));
         back->setText(QApplication::translate("MergedScreen", "Back To Main Menu", nullptr));
     } // retranslateUi
 
