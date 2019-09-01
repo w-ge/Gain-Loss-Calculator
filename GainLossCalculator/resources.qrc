@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/img">
-        <file>Images/delete.png</file>
-    </qresource>
-    <qresource prefix="/font">
-        <file>Fonts/Helvetica.ttf</file>
-        <file>Fonts/Helvetica Bold.ttf</file>
-    </qresource>
-</RCC>
